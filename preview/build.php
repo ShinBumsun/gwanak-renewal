@@ -6,7 +6,10 @@
  */
 error_reporting(E_ALL);
 
-$PAGES = array('index' => '메인', 'greeting' => '인사말');
+$PAGES = array(
+    'index' => '메인', 'greeting' => '인사말', 'mission' => '미션과 비전', 'human' => '인재상', 'ci' => '기관로고',
+    'history' => '기관연혁', 'facility' => '시설안내', 'memberinfo' => '조직도·직원소개', 'organization' => '법인소개', 'roadmap' => '오시는 길',
+);
 $page  = isset($argv[1]) ? $argv[1] : '';
 if (!isset($PAGES[$page])) {
     foreach ($PAGES as $p => $n) passthru(escapeshellarg(PHP_BINARY).' '.escapeshellarg(__FILE__).' '.$p);

@@ -74,8 +74,201 @@
 .gw-greet-from { margin-top: 6px; font-size: 1.12rem; color: var(--c-sub); }
 .gw-greet-from strong { color: var(--c-ink); font-weight: 800; }
 
+/* ==========================================================
+   복지관소개 페이지 공통 컴포넌트 (.gw-*)
+   ========================================================== */
+.gw-page { max-width: 1200px; margin: 0 auto; }
+.gw-head { margin-bottom: 32px; }
+.gw-tit { margin-top: 10px; font-size: 1.9rem !important; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; color: var(--c-navy-deep); }
+.gw-desc { margin-top: 10px; color: var(--c-sub); }
+.gw-sec { margin-top: 104px; }
+.gw-text { max-width: 920px; }
+.gw-text p + p { margin-top: 16px; }
+
+.gw-cards { display: grid; gap: 20px; margin: 0; padding: 0; list-style: none; }
+.gw-cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gw-cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gw-cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gw-card { padding: 32px 28px; border-radius: var(--radius-m); background: var(--c-bg-warm); border: 1px solid var(--c-line); }
+.gw-card > strong { display: block; font-size: 1.25rem; font-weight: 800; line-height: 1.45; color: var(--c-ink); }
+.gw-badge { display: inline-block; margin-bottom: 16px; padding: 4px 14px; border-radius: 999px; background: var(--c-primary-soft); font-size: .82rem; font-weight: 800; letter-spacing: .04em; color: var(--c-primary-strong); }
+.gw-no { display: block; margin-bottom: 10px; font-size: 1.5rem; font-weight: 800; color: var(--c-primary); font-variant-numeric: tabular-nums; }
+
+.gw-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ctt-con .gw-btn, .gw-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: var(--c-navy); border: 1.5px solid var(--c-navy); color: #fff; font-size: .97rem; font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
+.gw-btn:hover { background: var(--c-navy-deep); }
+.ctt-con .gw-btn-line, .gw-btn-line { background: #fff; color: var(--c-navy); }
+.gw-btn-line:hover { background: var(--c-navy-soft); }
+
+.gw-band { margin-top: 104px; padding: 48px 32px; border-radius: var(--radius-l); background: var(--c-navy); color: #fff; text-align: center; }
+.gw-band-label { display: inline-block; padding: 4px 14px; border-radius: 999px; background: rgba(255, 255, 255, .14); font-size: .85rem; font-weight: 800; letter-spacing: .1em; }
+.gw-band-txt { margin-top: 14px; font-size: 1.7rem; font-weight: 800; line-height: 1.45; }
+
+.gw-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.gw-tags li { padding: 8px 16px; border-radius: 10px; background: #fff; border: 1px solid var(--c-line); font-size: .97rem; color: var(--c-text); }
+
+/* ---------- 미션과 비전 ---------- */
+.gw-mission-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 56px 64px; border-radius: var(--radius-l); background: var(--c-primary-soft); }
+.gw-mission-quote { margin-top: 14px; font-size: 2.4rem; font-weight: 800; line-height: 1.35; letter-spacing: -0.035em; color: var(--c-navy-deep); }
+.gw-mission-img img { display: block; width: 100%; max-width: 440px; margin-left: auto; }
+.gw-mission .gw-card { padding: 36px 32px; background: #fff; box-shadow: var(--shadow-s); }
+.gw-eco { padding: 56px 64px; border-radius: var(--radius-l); background: var(--c-green-soft); }
+.gw-eco .gw-eyebrow { color: var(--c-green); }
+.gw-eco-head { margin-bottom: 28px; }
+.gw-eco-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.gw-eco-list li { display: flex; align-items: flex-start; gap: 14px; padding: 20px 22px; border-radius: 16px; background: #fff; line-height: 1.6; }
+.gw-eco-list span { flex-shrink: 0; padding: 2px 12px; border-radius: 999px; background: var(--c-green); color: #fff; font-size: .85rem; font-weight: 700; line-height: 1.7; }
+
+/* ---------- 인재상 ---------- */
+.gw-human { text-align: center; }
+.gw-human .gw-card { padding: 48px 28px; background: #fff; box-shadow: var(--shadow-s); }
+.gw-ic { display: block; width: 96px; height: 96px; margin: 0 auto 24px; border-radius: 50%; background: var(--c-navy-soft) no-repeat center / 44px; }
+.gw-ic-heart { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f3a5f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16'/%3E%3Cpath d='m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9'/%3E%3Cpath d='m2 15 6 6'/%3E%3Cpath d='M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z'/%3E%3C/svg%3E"); }
+.gw-ic-scale { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f3a5f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/%3E%3Cpath d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z'/%3E%3Cpath d='M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2'/%3E%3C/svg%3E"); }
+.gw-ic-bulb { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f3a5f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/%3E%3Cpath d='M9 18h6M10 22h4'/%3E%3C/svg%3E"); }
+.gw-key { display: block; margin-bottom: 8px; font-size: .9rem; font-weight: 800; color: var(--c-primary-strong); }
+
+/* ---------- 기관로고 ---------- */
+.gw-ci-card { padding: 0; overflow: hidden; background: #fff; }
+.gw-ci-img { display: grid; place-items: center; height: 240px; padding: 24px; background: #fff; border-bottom: 1px solid var(--c-line); }
+.gw-ci-img img { max-width: 100%; max-height: 120px; object-fit: contain; }
+.gw-ci-info { padding: 24px 28px 28px; background: var(--c-bg-warm); }
+.gw-ci-info strong { font-size: 1.2rem; font-weight: 800; color: var(--c-ink); }
+
+/* ---------- 기관연혁 ---------- */
+.gw-his-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 56px; }
+.gw-his-head .gw-tit { font-size: 2.1rem !important; }
+.gw-his-txt p + p { margin-top: 16px; }
+.gw-his-txt strong { color: var(--c-primary-strong); }
+.gw-his-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 72px 0 0; padding: 0; list-style: none; }
+.gw-his-nav a { display: block; padding: 12px 12px 20px; border-radius: var(--radius-m); background: #fff; border: 1px solid var(--c-line); text-align: center; text-decoration: none; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.gw-his-nav a:hover { border-color: var(--c-primary); box-shadow: var(--shadow-m); transform: translateY(-3px); }
+.gw-his-nav img { display: block; width: 100%; aspect-ratio: 19 / 10; object-fit: cover; border-radius: 12px; }
+.gw-his-period { display: block; margin-top: 14px; font-size: 1.2rem; font-weight: 800; color: var(--c-ink); }
+.gw-his-range { display: block; font-size: .94rem; color: var(--c-muted); }
+.gw-his-sec { margin-top: 88px; scroll-margin-top: calc(var(--hd-h) + 80px); }
+.gw-his-sec-tit { padding-bottom: 16px; border-bottom: 2px solid var(--c-ink); font-size: 1.6rem !important; font-weight: 800; color: var(--c-ink); }
+.gw-his-sec-tit small { margin-left: 8px; font-size: 1rem; font-weight: 600; color: var(--c-muted); }
+.gw-his-year { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; padding: 32px 0; border-bottom: 1px solid var(--c-line); }
+.gw-his-y { position: sticky; top: calc(var(--hd-h) + 84px); align-self: start; font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: var(--c-primary-strong); font-variant-numeric: tabular-nums; }
+.gw-his-list { margin: 0; padding: 0 0 0 24px; list-style: none; border-left: 2px solid var(--c-line); }
+.gw-his-list li { position: relative; display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 8px 0; }
+.gw-his-list li::before { content: ""; position: absolute; left: -31px; top: 17px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid var(--c-primary); }
+.gw-his-d { font-weight: 700; color: var(--c-navy); font-variant-numeric: tabular-nums; }
+.gw-his-t p + p { margin-top: 2px; }
+
+/* ---------- 시설안내 ---------- */
+.gw-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 0 40px; padding: 0; list-style: none; }
+.gw-stats li { padding: 24px 28px; border-radius: var(--radius-m); background: var(--c-navy); color: #fff; }
+.gw-stats span { display: block; font-size: .9rem; color: rgba(255, 255, 255, .75); }
+.gw-stats strong { display: inline-block; margin-top: 4px; margin-right: 6px; font-size: 1.5rem; font-weight: 800; }
+.gw-stats small { font-size: .9rem; color: rgba(255, 255, 255, .75); }
+.gw-floors { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--c-ink); }
+.gw-floors > li { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--c-line); }
+.gw-floor-no { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--c-ink); }
+.gw-floor-no b { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 16px; background: var(--c-primary-soft); font-size: 1.15rem; font-weight: 800; color: var(--c-primary-strong); }
+.gw-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.gw-plan { margin: 0; padding: 16px; border-radius: var(--radius-m); border: 1px solid var(--c-line); background: #fff; }
+.gw-plan img { display: block; width: 100%; border-radius: 10px; }
+.gw-plan figcaption { margin-top: 12px; text-align: center; font-weight: 700; color: var(--c-ink); }
+
+/* ---------- 조직도 · 직원소개 ---------- */
+.gw-org { --org-line: #c9c2b8; position: relative; padding: 48px 32px; border-radius: var(--radius-l); background: var(--c-bg-warm); text-align: center; }
+.gw-org-box { display: inline-flex; align-items: center; justify-content: center; min-width: 200px; min-height: 60px; padding: 0 24px; border-radius: 14px; font-size: 1.12rem; font-weight: 800; }
+.gw-org-top { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; }
+.gw-org-head { grid-column: 2; background: var(--c-navy); color: #fff; }
+.gw-org-side { grid-column: 3; justify-self: start; position: relative; margin-left: 56px; margin-top: 110px; min-width: 0; background: var(--c-green); color: #fff; font-size: 1rem; }
+.gw-org-side::before { content: ""; position: absolute; right: 100%; top: 50%; width: calc(56px + 100px); border-top: 2px solid var(--org-line); }
+.gw-org-sub { position: relative; margin-top: 56px; background: #5d84b5; color: #fff; }
+.gw-org-sub::before { content: ""; position: absolute; bottom: 100%; left: 50%; height: 140px; border-left: 2px solid var(--org-line); }
+.gw-org-sub::after { content: ""; position: absolute; top: 100%; left: 50%; height: 30px; border-left: 2px solid var(--org-line); }
+.gw-org-top + .gw-org-sub { margin-top: 30px; }
+.gw-org-teams { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 60px 0 0; padding: 0; list-style: none; }
+.gw-org-teams::before { content: ""; position: absolute; top: -30px; left: 10%; right: 10%; border-top: 2px solid var(--org-line); }
+.gw-org-teams li { position: relative; display: grid; place-items: center; min-height: 64px; padding: 8px; border-radius: 14px; background: #fff; border: 1.5px solid var(--c-line-strong); font-weight: 700; color: var(--c-ink); }
+.gw-org-teams li::before { content: ""; position: absolute; bottom: 100%; left: 50%; height: 30px; border-left: 2px solid var(--org-line); }
+.gw-org-attach { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 16px; margin-top: 28px; padding: 20px; border-radius: 16px; background: var(--c-navy-soft); }
+.gw-org-attach-label { font-size: .9rem; font-weight: 800; color: var(--c-navy); }
+.gw-org-attach ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.gw-org-attach li { padding: 12px 24px; border-radius: 12px; background: #fff; border: 1.5px solid #9dbde0; font-weight: 700; color: var(--c-navy); }
+
+.gw-lead-staff { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0 0 24px; padding: 0; list-style: none; }
+.gw-lead-staff li { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius-m); background: var(--c-navy); color: #fff; }
+.gw-lead-staff strong { font-size: 1.15rem; }
+.gw-lead-staff span { color: rgba(255, 255, 255, .8); }
+.gw-teams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.gw-team { border-radius: var(--radius-m); border: 1px solid var(--c-line); background: #fff; overflow: hidden; }
+.gw-team-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 20px 24px; background: var(--c-bg-warm); border-bottom: 1px solid var(--c-line); }
+.gw-team-head h4 { font-size: 1.2rem !important; font-weight: 800; color: var(--c-ink); }
+.gw-team-tel { display: flex; flex-wrap: wrap; gap: 6px; }
+.gw-team-tel a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; background: #fff; border: 1px solid var(--c-line-strong); font-size: .94rem; font-weight: 700; color: var(--c-primary-strong); text-decoration: none; }
+.gw-team-tbl { width: 100%; border-collapse: collapse; font-size: .97rem; }
+.gw-team-tbl thead th { padding: 10px 24px; font-size: .85rem; font-weight: 700; text-align: left; color: var(--c-muted); border-bottom: 1px solid var(--c-line); }
+.gw-team-tbl tbody th, .gw-team-tbl td { padding: 12px 24px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--c-line); }
+.gw-team-tbl tbody tr:last-child > * { border-bottom: 0; }
+.gw-team-tbl tbody th { width: 42%; font-weight: 700; color: var(--c-ink); }
+.gw-team-tbl em { margin-left: 4px; padding: 1px 8px; border-radius: 999px; background: var(--c-navy-soft); font-size: .8rem; font-weight: 700; color: var(--c-navy); }
+
+/* ---------- 법인소개 ---------- */
+.gw-corp-hero { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; align-items: center; padding: 48px 56px; border-radius: var(--radius-l); background: var(--c-bg-warm); }
+.gw-corp-logo { display: grid; place-items: center; aspect-ratio: 1; border-radius: var(--radius-m); background: #fff; }
+.gw-corp-logo img { width: 80%; }
+.gw-corp-quote { font-size: 1.9rem; font-weight: 800; line-height: 1.4; letter-spacing: -0.03em; color: var(--c-navy-deep); }
+.gw-corp-quote span { color: var(--c-green); }
+.gw-corp-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; margin: 24px 0 0; }
+.gw-corp-info div { display: flex; gap: 12px; }
+.gw-corp-info dt { flex-shrink: 0; width: 72px; font-weight: 700; color: var(--c-ink); }
+.gw-corp-info dd { margin: 0; color: var(--c-sub); }
+.gw-values .gw-card { background: #fff; }
+.gw-values p, .gw-corp-biz ul { margin-top: 10px; color: var(--c-sub); line-height: 1.6; }
+.gw-corp-biz ul { padding: 0; list-style: none; }
+.gw-corp-biz ul li { position: relative; padding-left: 14px; }
+.gw-corp-biz ul li::before { content: ""; position: absolute; left: 0; top: .75em; width: 5px; height: 5px; border-radius: 50%; background: var(--c-primary); }
+.gw-corp-biz .gw-card > strong { font-size: 1.12rem; }
+
+/* ---------- 오시는 길 ---------- */
+.gw-map { overflow: hidden; border-radius: var(--radius-l); border: 1px solid var(--c-line); background: #eef1f4; }
+.gw-map iframe { display: block; width: 100%; height: 460px; border: 0; }
+.gw-road-info { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; margin-top: 20px; }
+.gw-road-addr { padding: 32px 36px; border-radius: var(--radius-m); background: var(--c-navy); color: #fff; }
+.gw-road-addr .gw-eyebrow { color: #ffb067; }
+.gw-road-addr-txt { margin-top: 8px; font-size: 1.6rem; font-weight: 800; }
+.gw-road-zip { color: rgba(255, 255, 255, .75); }
+.gw-road-addr .gw-btn { background: #fff; border-color: #fff; color: var(--c-navy); }
+.gw-road-addr .gw-btn-line { background: transparent; border-color: rgba(255, 255, 255, .6); color: #fff; }
+.gw-road-contact { display: flex; flex-direction: column; justify-content: center; gap: 4px; margin: 0; padding: 28px 32px; border-radius: var(--radius-m); background: var(--c-bg-warm); border: 1px solid var(--c-line); }
+.gw-road-contact div { display: flex; gap: 16px; padding: 10px 0; }
+.gw-road-contact div + div { border-top: 1px solid var(--c-line); }
+.gw-road-contact dt { width: 64px; flex-shrink: 0; font-weight: 700; color: var(--c-ink); }
+.gw-road-contact dd { margin: 0; font-weight: 600; }
+.gw-road-contact a { color: inherit; }
+.gw-trans { background: #fff; }
+.gw-trans h4 { margin-bottom: 16px; font-size: 1.3rem !important; font-weight: 800; color: var(--c-ink); }
+.gw-trans-list { margin: 0; padding: 0; list-style: none; }
+.gw-trans-list li { display: flex; align-items: flex-start; gap: 16px; padding: 14px 0; line-height: 1.7; }
+.gw-trans-list li + li { border-top: 1px solid var(--c-line); }
+.gw-line { flex-shrink: 0; min-width: 64px; padding: 2px 10px; border-radius: 999px; color: #fff; font-size: .88rem; font-weight: 700; text-align: center; line-height: 1.7; }
+.gw-trans-list strong { color: var(--c-ink); }
+.gw-trans-list em { margin-left: 4px; font-size: .9rem; color: var(--c-muted); }
+.gw-bus { display: flex; flex-wrap: wrap; gap: 6px; }
+.gw-bus b { padding: 0 12px; border-radius: 8px; border: 1px solid var(--c-line-strong); font-variant-numeric: tabular-nums; }
+
 /* ---------- 반응형 ---------- */
 @media (max-width: 1024px) {
+    .gw-cards-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gw-mission-hero { padding: 48px 40px; }
+    .gw-mission-quote { font-size: 2rem; }
+    .gw-eco { padding: 48px 40px; }
+    .gw-eco-list { grid-template-columns: 1fr; }
+    .gw-his-intro { grid-template-columns: 1fr; gap: 24px; }
+    .gw-teams { grid-template-columns: 1fr; }
+    .gw-org-teams { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .gw-org-teams::before, .gw-org-teams li::before { display: none; }
+    .gw-org-sub::after { display: none; }
+    .gw-org-teams { margin-top: 24px; }
+    .gw-corp-hero { grid-template-columns: 160px minmax(0, 1fr); gap: 32px; padding: 40px; }
+    .gw-corp-info { grid-template-columns: 1fr; }
+    .gw-road-info { grid-template-columns: 1fr; }
     .gw-greet-intro { grid-template-columns: 1fr; gap: 48px; }
     .gw-greet-photo { max-width: 520px; }
     .gw-greet-promise { grid-template-columns: 1fr; }
@@ -107,4 +300,74 @@
     .gw-greet-promise strong { font-size: 1.15rem; }
     .gw-greet-em { font-size: 1.3rem; }
     .gw-greet-sign { text-align: left; }
+
+    .gw-tit { font-size: 1.5rem !important; }
+    .gw-sec, .gw-band { margin-top: 72px; }
+    .gw-cards-2, .gw-cards-3, .gw-cards-4 { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .gw-card { padding: 24px 20px; }
+    .gw-band { padding: 36px 20px; }
+    .gw-band-txt { font-size: 1.3rem; }
+
+    .gw-mission-hero { grid-template-columns: 1fr; gap: 20px; padding: 32px 24px; border-radius: var(--radius-m); }
+    .gw-mission-quote { font-size: 1.6rem; }
+    .gw-mission-img img { margin: 0 auto; }
+    .gw-mission .gw-card br { display: none; }
+    .gw-eco { padding: 32px 20px; border-radius: var(--radius-m); }
+    .gw-eco-list li { padding: 16px; }
+
+    .gw-human .gw-card { display: grid; grid-template-columns: 72px 1fr; column-gap: 16px; padding: 24px 20px; text-align: left; }
+    .gw-ic { grid-row: 1 / 3; width: 72px; height: 72px; margin: 0; background-size: 34px; }
+    .gw-key { margin: 0; align-self: end; }
+    .gw-human .gw-card > strong { font-size: 1.1rem; }
+    .gw-human .gw-card br { display: none; }
+
+    .gw-ci-img { height: 180px; }
+
+    .gw-his-nav { gap: 8px; margin-top: 48px; }
+    .gw-his-nav a { padding: 8px 8px 12px; border-radius: 14px; }
+    .gw-his-nav img { border-radius: 8px; }
+    .gw-his-period { margin-top: 8px; font-size: 1rem; }
+    .gw-his-range { font-size: .75rem; }
+    .gw-his-sec { margin-top: 56px; }
+    .gw-his-sec-tit { font-size: 1.3rem !important; }
+    .gw-his-year { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+    .gw-his-y { position: static; font-size: 1.6rem; }
+    .gw-his-list { padding-left: 20px; }
+    .gw-his-list li { grid-template-columns: 1fr; gap: 0; }
+    .gw-his-list li::before { left: -27px; top: 15px; }
+    .gw-his-d { font-size: .9rem; }
+
+    .gw-stats { grid-template-columns: 1fr; gap: 8px; }
+    .gw-stats li { padding: 18px 20px; }
+    .gw-stats strong { font-size: 1.25rem; }
+    .gw-floors > li { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
+    .gw-floor-no b { width: 48px; height: 48px; border-radius: 12px; font-size: 1rem; }
+    .gw-tags li { padding: 6px 12px; font-size: .9rem; }
+    .gw-plans { grid-template-columns: 1fr; }
+
+    .gw-org { padding: 32px 16px; border-radius: var(--radius-m); }
+    .gw-org-top { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .gw-org-side { margin: 0; }
+    .gw-org-side::before, .gw-org-sub::before { display: none; }
+    .gw-org-top + .gw-org-sub { margin-top: 12px; }
+    .gw-org-box { min-width: 180px; min-height: 52px; font-size: 1rem; }
+    .gw-org-teams { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .gw-org-teams li { min-height: 52px; font-size: .94rem; }
+    .gw-org-attach li { padding: 10px 16px; font-size: .94rem; }
+    .gw-lead-staff { grid-template-columns: 1fr; gap: 8px; }
+    .gw-team-head { padding: 16px 18px; }
+    .gw-team-tbl tbody th, .gw-team-tbl td { padding: 10px 18px; }
+    .gw-team-tbl thead th { padding: 8px 18px; }
+
+    .gw-corp-hero { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; border-radius: var(--radius-m); }
+    .gw-corp-logo { width: 120px; }
+    .gw-corp-quote { font-size: 1.35rem; }
+    .gw-corp-info div { flex-direction: column; gap: 0; }
+
+    .gw-map { border-radius: var(--radius-m); }
+    .gw-map iframe { height: 300px; }
+    .gw-road-addr { padding: 24px 20px; }
+    .gw-road-addr-txt { font-size: 1.25rem; }
+    .gw-road-contact { padding: 16px 20px; }
+    .gw-road-contact dd { word-break: break-all; }
 }
