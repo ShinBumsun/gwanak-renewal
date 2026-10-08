@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#ffffff">
+<title>프로그램 시간표 | 관악노인종합복지관</title>
+<script>
+// 글자크기 설정을 화면 표시 전에 적용 (깜빡임 방지)
+(function(){try{var f=localStorage.getItem('gw-fs');if(f)document.documentElement.setAttribute('data-fs',f);}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../theme/gwanak/css/default.css?ver=preview">
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "index.html";
+var g5_bbs_url   = "#bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+</script>
+<link rel="stylesheet" href="#js/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../theme/gwanak/css/sub.css?ver=preview">
+</head>
+<body>
+
+<a class="skip" href="#container">본문 바로가기</a>
+
+<!-- 상단 시작 { -->
+<header id="hd" class="hd">
+    <div class="hd-util">
+        <div class="inner">
+            <ul class="hd-family">
+                                <li><a href="organization.html?co_id=organization">사회복지법인 한주재단</a></li>
+                                <li><a href="https://noinjigi.org/daycare">관악데이케어센터</a></li>
+                                <li><a href="https://noinjigi.org/hospital">관악치매전문요양센터</a></li>
+                            </ul>
+            <div class="hd-tools">
+                <div class="fs-ctrl" role="group" aria-label="글자 크기 조절">
+                    <span class="fs-label" aria-hidden="true">글자크기</span>
+                    <button type="button" data-fs="0" aria-pressed="true">보통</button>
+                    <button type="button" data-fs="1" aria-pressed="false">크게</button>
+                    <button type="button" data-fs="2" aria-pressed="false">아주 크게</button>
+                </div>
+                <ul class="hd-member">
+                                        <li><a href="#bbs/login.php">로그인</a></li>
+                    <li><a href="#bbs/register.php">회원가입</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="hd-main">
+        <div class="inner">
+            <h1 class="hd-logo">
+                <a href="index.html"><img src="../theme/gwanak/img/logo.png" width="225" height="45" alt="사회복지법인 한주재단 시립관악노인종합복지관"></a>
+            </h1>
+
+            <nav class="gnb" id="gnb" aria-label="주 메뉴">
+                <ul class="gnb-list">
+                                        <li class="gnb-item">
+                        <a class="gnb-link" href="greeting.html?co_id=greeting">복지관소개</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="greeting.html?co_id=greeting">인사말</a></li>
+                                                        <li><a href="mission.html?co_id=mission">미션과 비전</a></li>
+                                                        <li><a href="human.html?co_id=human">인재상</a></li>
+                                                        <li><a href="ci.html?co_id=ci">기관로고</a></li>
+                                                        <li><a href="history.html?co_id=history">기관연혁</a></li>
+                                                        <li><a href="facility.html?co_id=facility">시설안내</a></li>
+                                                        <li><a href="memberinfo.html?co_id=memberinfo">조직도·직원소개</a></li>
+                                                        <li><a href="organization.html?co_id=organization">법인소개</a></li>
+                                                        <li><a href="roadmap.html?co_id=roadmap">오시는 길</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li class="gnb-item is-current">
+                        <a class="gnb-link" href="guide.html?co_id=guide">이용안내</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="guide.html?co_id=guide">복지관 이용안내</a></li>
+                                                        <li><a href="restaurant.html?co_id=restaurant">경로식당 이용안내</a></li>
+                                                        <li><a href="#bo_table=food">월별 식단표</a></li>
+                                                        <li><a href="timetable.html?co_id=timetable">프로그램 시간표</a></li>
+                                                        <li><a href="bus.html?co_id=bus">셔틀버스 안내</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li class="gnb-item">
+                        <a class="gnb-link" href="biz1.html?co_id=biz1">사업소개</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="biz1.html?co_id=biz1">상담</a></li>
+                                                        <li><a href="biz2.html?co_id=biz2">건강증진사업</a></li>
+                                                        <li><a href="biz3.html?co_id=biz3">노년사회화교육사업</a></li>
+                                                        <li><a href="biz4.html?co_id=biz4">재가복지사업</a></li>
+                                                        <li><a href="biz5.html?co_id=biz5">지역복지활성화사업</a></li>
+                                                        <li><a href="biz6.html?co_id=biz6">노인사회활동지원사업</a></li>
+                                                        <li><a href="biz8.html?co_id=biz8">직원교육사업</a></li>
+                                                        <li><a href="biz9.html?co_id=biz9">취업알선사업</a></li>
+                                                        <li><a href="biz10.html?co_id=biz10">특화서비스</a></li>
+                                                        <li><a href="biz12.html?co_id=biz12">지역복지협동사업</a></li>
+                                                        <li><a href="biz13.html?co_id=biz13">노인맞춤돌봄서비스사업</a></li>
+                                                        <li><a href="biz14.html?co_id=biz14">기능회복운영사업</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li class="gnb-item">
+                        <a class="gnb-link" href="service.html?co_id=service">후원·자원봉사</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="service.html?co_id=service">자원봉사 안내</a></li>
+                                                        <li><a href="#bo_table=volunteer">자원봉사활동 현황</a></li>
+                                                        <li><a href="#bo_table=form_service">자원봉사 신청</a></li>
+                                                        <li><a href="sponsor.html?co_id=sponsor">후원 안내</a></li>
+                                                        <li><a href="#bo_table=form_sponsor">후원 신청</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li class="gnb-item">
+                        <a class="gnb-link" href="#bo_table=notice">복지관 소식</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="#bo_table=notice">공지사항</a></li>
+                                                        <li><a href="#bo_table=recruit">인재채용</a></li>
+                                                        <li><a href="#bo_table=report">재정보고</a></li>
+                                                        <li><a href="#bo_table=study">온라인강의</a></li>
+                                                        <li><a href="#bo_table=data">자료실</a></li>
+                                                        <li><a href="#bbs/faq.php">FAQ</a></li>
+                                                        <li><a href="#bo_table=participation">어르신 참여방</a></li>
+                                                        <li><a href="#bo_table=program">프로그램 강좌신청</a></li>
+                                                    </ul>
+                                            </li>
+                                        <li class="gnb-item">
+                        <a class="gnb-link" href="#bo_table=photo">관악홍보실</a>
+                                                <ul class="gnb-sub">
+                                                        <li><a href="#bo_table=photo">관악앨범</a></li>
+                                                        <li><a href="#bo_table=movie">관악동영상</a></li>
+                                                        <li><a href="#bo_table=news">언론에 비친 관악</a></li>
+                                                        <li><a href="#bo_table=newsletter">뉴스레터</a></li>
+                                                    </ul>
+                                            </li>
+                                    </ul>
+            </nav>
+
+            <div class="hd-actions">
+                <a class="hd-call" href="tel:028886144">
+                    <svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>                    <span><small>대표전화</small>02-888-6144~5</span>
+                </a>
+                <button type="button" class="hd-btn js-search-open" aria-label="통합검색 열기" aria-expanded="false" aria-controls="hd-search"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+                <button type="button" class="hd-btn hd-btn--menu js-drawer-open" aria-label="전체메뉴 열기" aria-expanded="false" aria-controls="drawer"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span class="hd-btn-txt">전체메뉴</span></button>
+            </div>
+        </div>
+        <div class="gnb-bg" aria-hidden="true"></div>
+    </div>
+
+    <!-- 통합검색 -->
+    <div class="hd-search" id="hd-search" hidden>
+        <div class="inner">
+            <form name="fsearchbox" method="get" action="#bbs/search.php" role="search">
+                <input type="hidden" name="sfl" value="wr_subject||wr_content">
+                <input type="hidden" name="sop" value="and">
+                <label for="sch_stx" class="sound_only">검색어</label>
+                <input type="search" name="stx" id="sch_stx" maxlength="20" placeholder="찾으시는 프로그램이나 소식을 입력하세요" required>
+                <button type="submit" class="hd-search-submit"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>검색</span></button>
+            </form>
+            <p class="hd-search-tags">
+                <span>자주 찾는 검색어</span>
+                <a href="#bbs/search.php?sfl=wr_subject&amp;sop=and&amp;stx=%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8">프로그램</a>
+                <a href="#bbs/search.php?sfl=wr_subject&amp;sop=and&amp;stx=%EC%8B%9D%EB%8B%A8">식단</a>
+                <a href="#bbs/search.php?sfl=wr_subject&amp;sop=and&amp;stx=%EC%B1%84%EC%9A%A9">채용</a>
+                <a href="#bbs/search.php?sfl=wr_subject&amp;sop=and&amp;stx=%EC%9D%BC%EC%9E%90%EB%A6%AC">일자리</a>
+            </p>
+            <button type="button" class="hd-search-close js-search-close" aria-label="검색 닫기"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+    </div>
+</header>
+
+<!-- 전체메뉴 (모바일 · 태블릿) -->
+<div class="drawer" id="drawer" hidden>
+    <div class="drawer-dim js-drawer-close"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="전체메뉴">
+        <div class="drawer-head">
+                        <p class="drawer-hello">로그인하고 프로그램을 신청하세요</p>
+                        <button type="button" class="hd-btn js-drawer-close" aria-label="전체메뉴 닫기"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="drawer-member">
+                        <a href="#bbs/login.php" class="is-primary">로그인</a>
+            <a href="#bbs/register.php">회원가입</a>
+                    </div>
+        <nav class="drawer-nav" aria-label="전체메뉴">
+            <ul>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="true" aria-controls="drawer-sub-0">복지관소개<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-0">
+                                                <li><a href="greeting.html?co_id=greeting">인사말</a></li>
+                                                <li><a href="mission.html?co_id=mission">미션과 비전</a></li>
+                                                <li><a href="human.html?co_id=human">인재상</a></li>
+                                                <li><a href="ci.html?co_id=ci">기관로고</a></li>
+                                                <li><a href="history.html?co_id=history">기관연혁</a></li>
+                                                <li><a href="facility.html?co_id=facility">시설안내</a></li>
+                                                <li><a href="memberinfo.html?co_id=memberinfo">조직도·직원소개</a></li>
+                                                <li><a href="organization.html?co_id=organization">법인소개</a></li>
+                                                <li><a href="roadmap.html?co_id=roadmap">오시는 길</a></li>
+                                            </ul>
+                </li>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="false" aria-controls="drawer-sub-1">이용안내<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-1" hidden>
+                                                <li><a href="guide.html?co_id=guide">복지관 이용안내</a></li>
+                                                <li><a href="restaurant.html?co_id=restaurant">경로식당 이용안내</a></li>
+                                                <li><a href="#bo_table=food">월별 식단표</a></li>
+                                                <li><a href="timetable.html?co_id=timetable">프로그램 시간표</a></li>
+                                                <li><a href="bus.html?co_id=bus">셔틀버스 안내</a></li>
+                                            </ul>
+                </li>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="false" aria-controls="drawer-sub-2">사업소개<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-2" hidden>
+                                                <li><a href="biz1.html?co_id=biz1">상담</a></li>
+                                                <li><a href="biz2.html?co_id=biz2">건강증진사업</a></li>
+                                                <li><a href="biz3.html?co_id=biz3">노년사회화교육사업</a></li>
+                                                <li><a href="biz4.html?co_id=biz4">재가복지사업</a></li>
+                                                <li><a href="biz5.html?co_id=biz5">지역복지활성화사업</a></li>
+                                                <li><a href="biz6.html?co_id=biz6">노인사회활동지원사업</a></li>
+                                                <li><a href="biz8.html?co_id=biz8">직원교육사업</a></li>
+                                                <li><a href="biz9.html?co_id=biz9">취업알선사업</a></li>
+                                                <li><a href="biz10.html?co_id=biz10">특화서비스</a></li>
+                                                <li><a href="biz12.html?co_id=biz12">지역복지협동사업</a></li>
+                                                <li><a href="biz13.html?co_id=biz13">노인맞춤돌봄서비스사업</a></li>
+                                                <li><a href="biz14.html?co_id=biz14">기능회복운영사업</a></li>
+                                            </ul>
+                </li>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="false" aria-controls="drawer-sub-3">후원·자원봉사<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-3" hidden>
+                                                <li><a href="service.html?co_id=service">자원봉사 안내</a></li>
+                                                <li><a href="#bo_table=volunteer">자원봉사활동 현황</a></li>
+                                                <li><a href="#bo_table=form_service">자원봉사 신청</a></li>
+                                                <li><a href="sponsor.html?co_id=sponsor">후원 안내</a></li>
+                                                <li><a href="#bo_table=form_sponsor">후원 신청</a></li>
+                                            </ul>
+                </li>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="false" aria-controls="drawer-sub-4">복지관 소식<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-4" hidden>
+                                                <li><a href="#bo_table=notice">공지사항</a></li>
+                                                <li><a href="#bo_table=recruit">인재채용</a></li>
+                                                <li><a href="#bo_table=report">재정보고</a></li>
+                                                <li><a href="#bo_table=study">온라인강의</a></li>
+                                                <li><a href="#bo_table=data">자료실</a></li>
+                                                <li><a href="#bbs/faq.php">FAQ</a></li>
+                                                <li><a href="#bo_table=participation">어르신 참여방</a></li>
+                                                <li><a href="#bo_table=program">프로그램 강좌신청</a></li>
+                                            </ul>
+                </li>
+                                <li class="drawer-item">
+                    <button type="button" class="drawer-tit" aria-expanded="false" aria-controls="drawer-sub-5">관악홍보실<svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+                    <ul class="drawer-sub" id="drawer-sub-5" hidden>
+                                                <li><a href="#bo_table=photo">관악앨범</a></li>
+                                                <li><a href="#bo_table=movie">관악동영상</a></li>
+                                                <li><a href="#bo_table=news">언론에 비친 관악</a></li>
+                                                <li><a href="#bo_table=newsletter">뉴스레터</a></li>
+                                            </ul>
+                </li>
+                            </ul>
+        </nav>
+        <a class="drawer-call" href="tel:028886144"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 전화 문의 02-888-6144~5</a>
+    </div>
+</div>
+<!-- } 상단 끝 -->
+
+<main id="container" class="sub">
+    <div class="sub-visual">
+        <div class="inner">
+            <p class="sub-eyebrow">이용안내</p>            <h2 class="sub-title">프로그램 시간표</h2>
+                        <nav class="breadcrumb" aria-label="현재 위치">
+                <ol>
+                    <li><a href="index.html"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="sound_only">홈</span></a></li>
+                    <li><a href="guide.html?co_id=guide">이용안내</a></li>                    <li aria-current="page">프로그램 시간표</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+        <nav class="sub-nav" aria-label="이용안내 하위 메뉴">
+        <div class="inner">
+            <ul class="sub-nav-list">
+                                <li><a href="guide.html?co_id=guide">복지관 이용안내</a></li>
+                                <li><a href="restaurant.html?co_id=restaurant">경로식당 이용안내</a></li>
+                                <li><a href="#bo_table=food">월별 식단표</a></li>
+                                <li><a href="timetable.html?co_id=timetable" class="is-current" aria-current="page">프로그램 시간표</a></li>
+                                <li><a href="bus.html?co_id=bus">셔틀버스 안내</a></li>
+                            </ul>
+        </div>
+    </nav>
+    
+    <div class="inner sub-body">
+
+<article id="ctt" class="ctt ctt_timetable">
+    <h3 class="sound_only">프로그램 시간표 본문</h3>
+
+    <div id="ctt_con" class="ctt-con">
+        <div class="gw-page gw-doc">
+<h4 class="gw-h">이용대상</h4><ul class="gw-check"><li>만 60세 이상 서울 거주 시민</li><li>프로그램 별 접수, 추첨을 통해 수강 가능</li></ul><h4 class="gw-h">이용절차</h4><ol class="gw-flow"><li><strong>회원가입</strong><span>비회원</span></li><li><strong>회원증 지참</strong><span>기존 회원</span></li><li><strong>프로그램 접수 및 추첨</strong><span>2층 사무실</span></li><li><strong>프로그램 수강</strong><span>각 프로그램실</span></li><li><strong>수강포기 및 변동</strong><span>2층 사무실</span></li></ol><p>* 프로그램 신청 및 정정은 2층 사무실 노년사회화교육팀 방문</p><h4 class="gw-h">수강료</h4><ul class="gw-check"><li>프로그램 아래 명시되어 있는 수강료 참고</li><li>수강료 납부 2층 키오스크에서 카드 및 현금 결제</li><li>프로그램 아래 명시되어있는 수강료는 1학기(20주)분임.</li><li>국가 공휴일 및 기관 행사로 수업 일수가 줄어들 수 있음.</li><li>수강료 감면 대상자<br> [1과목 무료 수강] → 기초생활수급자<br> [1과목 50% 감면] → 국가유공자(본인만), 장애인, 차상위계층<br> [전 과목 무료 수강] → 85세 이상(~1942년생) / 주민등록상 기준<br> * 동아리는 수강료 감면 및 무료 수강 제외<br> * 감면 대상자는 6개월 이내 발급 증빙서류 확인</li></ul><h4 class="gw-h">환불규정 안내</h4><p>*원 단위 절사</p><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>환불신청 시점</th><th>환불액</th></tr><tr><td>개강 전 일(토, 일 제외)</td><td>전액환불</td></tr><tr><td>매월 10일까지</td><td>월 2/3 해당 금액 + 남은 달 수 금액 환불</td></tr><tr><td>매월 15일까지</td><td>월 1/2 해당 금액 + 남은 달 수 금액 환불</td></tr><tr><td>매월 16일 이후</td><td>그 달 제외, 남은 달 수 금액 환불</td></tr></table></div><p>※ 평생교육법 제23조 제2항 제3호의 반환사유에 따른 경우 환불</p><p>※ 회원증 및 통장사본 지참 후</p><p>2층 사무실에서 신청</p><p>※ 환불신청서 작성하면</p><p>반환금액을 해당 계좌로 입금</p><p>※ 처리기간은</p><p>약 20~30일 정도 소요</p><p><strong>[ 환불 불가 기간 ]</strong><br> - 상반기 5월 16일 이후<br> - 하반기 11월 16일 이후</p><h4 class="gw-h">환불절차</h4><ol class="gw-steps gw-steps-3"><li><span class="gw-step-no">STEP 1</span><strong>복지관 방문</strong></li><li><span class="gw-step-no">STEP 2</span><strong>서류 작성</strong><p>환불신청서(방문 필수)<br>필요자료 : 통장사본(본인명의), 회원증(본인명의), 수납영수증</p></li><li><span class="gw-step-no">STEP 3</span><strong>환불 완료</strong></li></ol><h4 class="gw-h">프로그램 유의사항</h4><ul class="gw-check"><li>1인 5과목(청춘마당, 동아리 포함) 신청할 수 있습니다.</li><li>초급, 중급, 활용 과정의 동시 수강은 불가합니다. ex) 스마트폰 초급, 중급 동시 신청 불가</li><li>접수 인원이 정원 기준 70% 이하일 경우 폐강됩니다.</li><li>수강료 납부는 키오스크에서 카드 또는 현금으로 결제합니다.</li><li>프로그램 수강 시 출석 여부는 회원증 체크로 합니다.(교실 입장 전 단말기에 회원증 찍기)</li><li>수업과 관련된 교재, 재료비, 준비물은 개인부담입니다.</li><li>각 프로그램별 대기자는 결원 발생 후 대기 순서대로 등록됩니다.</li><li>개강 후 중도 신청자의 경우, 월에 따른 수강료 감액해서 접수 진행합니다.</li><li>프로그램 청강은 불가능합니다.</li></ul><h4 class="gw-h">이용안내</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>공통 안내</th><th colspan="2">프로그램</th><th>안내 사항</th><th>학기</th><th>수강기간</th></tr><tr><td rowspan="11"><ul class="gw-list"><li><strong>접수기간을 통해 접수를 진행하며, 신청인원이 정원을 초과할 경우 추첨된 어르신에 한해 수강 가능합니다.</strong><br> * 접수는 회원증 필히 지참하여 본인 방문신청<br> * 추첨은 컴퓨터 자동 프로그램 진행<br> * 청강불가</li><li><strong>프로그램 수강포기 및 변동사항은 담당자 통해 진행합니다.</strong></li><li><strong>본 내용은 복지관의 사정에 따라 변동될 수 있습니다.</strong></li></ul></td><td rowspan="2" colspan="2">청춘마당 프로그램</td><td rowspan="2"><ul class="gw-list"><li>20주 과정</li><li>회원카드 지참 후 이용 가능</li><li>강당 이용 시 실내화 필수</li></ul></td><td>상반기</td><td>1~6월</td></tr><tr><td>하반기</td><td>7~12월</td></tr><tr><td rowspan="2" colspan="2">인문 프로그램</td><td rowspan="2"><ul class="gw-list"><li>20주 과정</li><li>수준별 과목 동시 수강 불가</li></ul></td><td>상반기</td><td>1~6월</td></tr><tr><td>하반기</td><td>7~12월</td></tr><tr><td rowspan="2" colspan="2">미술 프로그램</td><td rowspan="2"><ul class="gw-list"><li>20주 과정</li><li>수준별 과목 동시 수강 불가</li><li>동일과목 1년 연속 수강 시 다음 학기 초기 접수 불가<br> * 단, 추첨 이후 추가 접수 가능</li></ul></td><td>상반기</td><td>1~6월</td></tr><tr><td>하반기</td><td>7~12월</td></tr><tr><td rowspan="4">정보화 교실</td><td rowspan="2">컴퓨터 프로그램</td><td rowspan="2"><ul class="gw-list"><li>20주 과정</li><li>수준별 과목 동시 수강 불가</li><li>동일과목 1년 연속 수강 시 다음 학기 초기 접수 불가<br> * 단, 추첨 이후 추가 접수 가능</li></ul></td><td>상반기</td><td>1~6월</td></tr><tr><td>하반기</td><td>7~12월</td></tr><tr><td rowspan="2">스마트폰 프로그램</td><td rowspan="2"><ul class="gw-list"><li>20주 과정</li><li>수준별 과목 동시 수강 불가</li><li>동일과목 1년 연속 수강 시 다음 학기 초기 접수 불가<br> * 단, 추첨 이후 추가 접수 가능</li></ul></td><td>상반기</td><td>1~6월</td></tr><tr><td>하반기</td><td>7~12월</td></tr><tr><td colspan="2">서예 프로그램</td><td><ul class="gw-list"><li>20주 과정</li><li>수준별 과목 동시 수강 불가</li></ul></td><td>상반기</td><td>1~6월</td></tr></table></div><h4 class="gw-h">청춘마당 프로그램(2층 청춘마당)</h4><p>- 실내화 필수 / 회원증 필참</p><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>화</th><th>수</th><th>목</th></tr><tr><td>9:30~<br>10:20</td><td data-club="1">★한국무용동아리<br>(개별안내)</td><td>맷돌실버체조1<br>(80명, 무료)</td><td>실버모델<br>(25,000원)</td><td>라인댄스1<br>(80명, 무료)</td></tr><tr><td>10:30~<br>11:20</td><td>한국무용<br>(80명, 무료)</td><td>밴드&amp;근력운동1<br>(80명, 무료)</td><td data-club="1">★실버모델동아리<br>(개별안내)</td><td>라인댄스2<br>(80명, 무료)</td></tr><tr><td>11:30~<br>12:20</td><td>노래교실<br>(120명, 무료)</td><td>밴드&amp;근력운동2<br>(80명, 무료)</td><td>맷돌실버체조2<br>(80명, 무료)</td><td></td></tr><tr><td>13:30~<br>14:20</td><td>건강백세체조1<br>(80명, 무료)</td><td>댄스스포츠<br>(80명, 무료)</td><td>스트레칭&amp;명상<br>(80명, 무료)</td><td>가요교실<br>(13:00~13:50)<br>(120명, 무료)</td></tr><tr><td>14:30~<br>15:20</td><td>건강백세체조2<br>(80명, 무료)</td><td>우리가락<br>(120명, 무료)</td><td>웰빙댄스<br>(14:00~14:50)<br>(120명, 무료)</td><td>가곡교실<br>(14:00~14:50)<br>(120명, 무료)</td></tr><tr><td>15:30~<br>16:20</td><td></td><td></td><td data-club="1">★웰빙댄스동아리<br>(개별안내)</td><td data-club="1">★합창단동아리<br>(15:00~16:20)<br>(개별안내)</td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>한국무용</td><td>우리 전통의 멋과 아름다운 몸짓을 배우는 수업</td></tr><tr><td>노래교실</td><td>신나는 가요와 함께 즐겁게 따라 부르는 수업</td></tr><tr><td>건강백세체조1,2</td><td>근력과 균형을 강화해 건강한 일상과 중증 예방을 돕는 수업</td></tr><tr><td>맷돌실버체조1,2</td><td>신나는 노래에 맞춰 신체 지압점 등을 활용한 온몸 운동 수업</td></tr><tr><td>밴드&amp;근력운동1,2</td><td>근력과 유연성을 강화하며 체력을 기르는 수업</td></tr><tr><td>댄스스포츠</td><td>리듬과 스텝을 배우며 신체 균형과 활력을 높이는 수업</td></tr><tr><td>우리가락</td><td>흥거운 민요를 부르며 전통의 맛을 즐기는 음악 수업</td></tr><tr><td>스트레칭&amp;명상</td><td>스트레칭으로 몸을 풀고 명상으로 마음을 다듬는 수업</td></tr><tr><td>웰빙댄스</td><td>즐거운 음악에 맞춰 몸을 움직이며 건강과 활력을 채우는 수업</td></tr><tr><td>라인댄스1,2</td><td>음악과 맞춰 줄지어 스텝을 배우며 즐거움을 찾아는 수업</td></tr><tr><td>가요교실</td><td>즐거운 가요를 함께 배우고 부르며 흥을 나누는 수업</td></tr><tr><td>가곡교실</td><td>아름다운 선율의 가곡을 익히며 발성을 키우는 수업</td></tr><tr><td>실버모델</td><td>올바른 자세와 균형 감각을 배우는 자세교정 수업</td></tr></table></div><h4 class="gw-h">청춘마당 프로그램(수강기간:20주)</h4><ul class="gw-list"><li>청춘마당 프로그램은 회원가입 후 이용이 가능합니다.</li><li>청춘마당 프로그램 이용 시 꼭 전자출석을 해주세요.</li><li>강당에서는 반드시 <strong>실내화를 착용</strong>합니다.</li></ul><h4 class="gw-h">인문학 교육(2층 배움터2) / 각 정원 20명</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr><tr><td>9:30~<br>10:20</td><td></td><td></td><td>생활영어<br>(25,000원)</td><td>영어 초급1<br>(25,000원)</td><td>중국어 초급1<br>(25,000원)</td></tr><tr><td>10:30~<br>11:20</td><td></td><td>한문(천자문)<br>(25,000원)</td><td>여행영어<br>(25,000원)</td><td>영어 초급2<br>(25,000원)</td><td>중국어 초급2<br>(25,000원)</td></tr><tr><td>11:30~<br>12:20</td><td></td><td>한문<br>(명심보감)<br>(25,000원)</td><td></td><td>영어 중급<br>(25,000원)</td><td>중국어 중급<br>(25,000원)</td></tr><tr><td>13:30~<br>14:20</td><td>삼국지인문학<br>(25,000원)</td><td>한글1<br>(무료)</td><td>일본어 초급<br>(25,000원)</td><td>수지침 중급<br>(25,000원)</td><td>동양역사<br>(25,000원)</td></tr><tr><td>14:30~<br>15:20</td><td>풍수지리<br>초급<br>(25,000원)</td><td>한글2<br>(무료)</td><td>일본어 중급<br>(25,000원)</td><td>수지침 초급<br>(25,000원)</td><td>서양역사<br>(25,000원)</td></tr><tr><td>15:30~<br>16:20</td><td>풍수지리<br>중급<br>(25,000원)</td><td></td><td></td><td></td><td></td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>삼국지인문학</td><td>삼국지 이야기를 통해 리더십 등 삶의 지혜를 얻는 수업</td></tr><tr><td>풍수지리</td><td>초급 : 풍수지리 양택이론과 생활풍수 원리 수업<br>중급 : 풍수지리 음· 양택이론 및 생활택학 이론 수업</td></tr><tr><td>한문</td><td>천자문 : 훈음과 해자풀이로 배우는 천자문 수업<br>명심보감 : 인성과 예절을 배우는 인생보감 수업</td></tr><tr><td>한글</td><td>생활에 필요한 기본적인 능력을 기르는 한글수업</td></tr><tr><td>생활영어</td><td>일상생활에 필수적인 실용적 문장을 익히는 수업</td></tr><tr><td>여행영어</td><td>여행시 필요한 유용한 상황별 영어 표현 익히는 수업</td></tr><tr><td>일본어</td><td>초급 : 초심자를 위한 입문부터 기초문법까지 배우는 수업<br>중급 : 기초문법 학습 후 기본적인 독해와 생활회화를 배우는 수업</td></tr><tr><td>영어</td><td>초급 : 알파벳 발음을 익히어 단어를 읽어보는 수업<br>중급 : 기초 문법을 학습해 짧은 문장을 말하보는 수업</td></tr><tr><td>수지침</td><td>초급 : 손에서의 몸의 자리를 배워 건강 관리하는 수업<br>중급 : 증상별 손의 혈자리를 배워 건강 증진하는 수업</td></tr><tr><td>중국어</td><td>초급 : 기본 발음 등을 익히 중국어 학습의 기초를 다지는 수업<br>중급 : 기초를 넘어 실생활에 유용한 문법 등을 배우는 수업</td></tr><tr><td>동양역사</td><td>다양한 동양국가의 역사, 문화, 사회 등을 배우는 수업</td></tr><tr><td>서양역사</td><td>다양한 서양국가의 역사, 문화, 사회 등을 배우는 수업</td></tr></table></div><h4 class="gw-h">수강기간: 20주</h4><ul class="gw-list"><li>신청방법 : 수강신청 기간에 신청 접수 후 추첨</li></ul><h4 class="gw-h">서예 교육(2층 배움터3) / 각 정원 18명</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr><tr><td>9:30~<br>10:50</td><td>한문서예1<br>(해서)<br>(30,000원)</td><td>한문서예5<br>(해서/행서)<br>(30,000원)</td><td>캘리그래피1<br>(30,000원)</td><td>사군자<br>(30,000원)</td><td>한글서예1<br>(기초정자)<br>(30,000원)</td></tr><tr><td>11:00~<br>12:20</td><td>한문서예2<br>(해서)<br>(30,000원)</td><td>한문서예6<br>(해서/행서)<br>(30,000원)</td><td>캘리그래피2<br>(30,000원)</td><td></td><td>한글서예2<br>(기초정자)<br>(30,000원)</td></tr><tr><td>13:30~<br>14:50</td><td>한문서예3<br>(행서/초서)<br>(30,000원)</td><td>한문서예7<br>(예서/초서)<br>(30,000원)</td><td></td><td>문인화1<br>(30,000원)</td><td>한글서예3<br>(공체)<br>(30,000원)</td></tr><tr><td>15:00~<br>16:20</td><td>한문서예4<br>(행서/초서)<br>(30,000원)</td><td></td><td></td><td>문인화2<br>(30,000원)</td><td>한글서예4<br>(공체)<br>(30,000원)</td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>한문서예1,2</td><td>한문(해서) 붓글씨 수업</td></tr><tr><td>한문서예3,4</td><td>한문(행서/초서) 붓글씨 수업</td></tr><tr><td>한문서예5,6</td><td>한문(해서/행서) 붓글씨 수업</td></tr><tr><td>한문서예7</td><td>한문(예서/초서) 붓글씨 수업</td></tr><tr><td>캘리그래피</td><td>아름다운 손글씨를 통해 감성을 표현하는 수업</td></tr><tr><td>사군자</td><td>동양화의 기본 기법을 배우는 수업</td></tr><tr><td>문인화</td><td>먹의 농담과 여백의 미를 살려 자연의 정취를 표현하는 수업</td></tr><tr><td>한글서예1,2</td><td>한글(기초정자) 붓글씨 수업</td></tr><tr><td>한글서예3,4</td><td>한글(공체) 붓글씨 수업</td></tr></table></div><h4 class="gw-h">서예 프로그램(수강기간: 20주)</h4><ul class="gw-list"><li>신청방법 : 수강신청 기간에 신청 접수 후 추첨</li></ul><h4 class="gw-h">정보화 교육(2층 배움터1) / 각 정원 15명</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>수</th><th>목</th><th>금</th></tr><tr><td>9:00~<br>10:20</td><td>스마트폰 초급1<br>(30,000원)</td><td>디지털 활용1<br>(30,000원)</td><td>컴퓨터 중급2<br>(30,000원)</td><td>스마트폰 중급3<br>(30,000원)</td></tr><tr><td>10:30~<br>11:50</td><td>스마트폰 중급1<br>(30,000원)</td><td>스마트폰 초급2<br>(30,000원)</td><td>스마트폰 중급3<br>(30,000원)</td><td>컴퓨터 중급3<br>(30,000원)</td></tr><tr><td>13:00~<br>14:20</td><td>컴퓨터 초급1<br>(30,000원)</td><td>스마트폰 중급2<br>(30,000원)</td><td>스마트폰 중급4<br>(30,000원)</td><td>스마트폰 중급4<br>(30,000원)</td></tr><tr><td>14:30~<br>15:50</td><td>컴퓨터 중급1<br>(30,000원)</td><td>컴퓨터 초급2<br>(30,000원)</td><td>디지털 활용2<br>(30,000원)</td><td>컴퓨터 초급3<br>(30,000원)</td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>스마트폰 초급</td><td>전원 ON/OFF, 글자판 연습, 사진촬영, 기본 기능 등</td></tr><tr><td>스마트폰 중급</td><td>핸드폰 사진 및 동영상 편집 기능, 카카오톡, 지도 사용법 등</td></tr><tr><td>컴퓨터 초급</td><td>전원 ON/OFF, 타자 연습, 그림판 사용법 등</td></tr><tr><td>컴퓨터 중급</td><td>문서작성, 생활에 필요한 인터넷 활용 등</td></tr><tr><td>디지털 활용</td><td>AI, 키오스크, 해피테이블 사용법 등</td></tr></table></div><h4 class="gw-h">기악교육(지하 울림터1) / 각 정원 15명(하모니카, 특별반 20명)</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>수</th><th>목</th><th>금</th></tr><tr><td>10:30~<br>11:20</td><td></td><td>오카리나 초급<br>(25,000원)</td><td>우쿨렐레 초급<br>(25,000원)</td><td>하모니카 초급<br>(25,000원)</td></tr><tr><td>11:30~<br>12:20</td><td></td><td>오카리나 중급<br>(25,000원)</td><td>우쿨렐레 중급<br>(25,000원)</td><td>하모니카 중급<br>(25,000원)</td></tr><tr><td>13:30~<br>14:20</td><td>가락장구<br>(25,000원)</td><td data-club="1">★오카리나<br>동아리<br>(개별안내)</td><td></td><td data-club="1">★하모니카<br>동아리1<br>(개별안내)</td></tr><tr><td>14:30~<br>15:20</td><td></td><td></td><td></td><td data-club="1">★하모니카<br>동아리2<br>(개별안내)</td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>가락장구</td><td>신나는 장단을 두드리며 전통의 멋과 흥을 느끼는 수업</td></tr><tr><td>오카리나</td><td>초급 : 기본 운지법과 쉬운 동요를 배우는 수업<br> 중급 : 다양한 주법을 익히고 아름다운 곡들을 연주하는 수업</td></tr><tr><td>우쿨렐레</td><td>초급 : 기초 코드 등을 배워 연주의 즐거움을 느끼는 수업<br> 중급 : 다양한 리듬 패턴과 코드를 활용하여 연주하는 수업</td></tr><tr><td>하모니카</td><td>초급 : 기본 주법과 호흡법을 배워 간단한 곡들을 연주하는 수업<br> 중급 : 심화 주법을 익히고 다양한 곡을 연주하는 수업</td></tr></table></div><h4 class="gw-h">기악교육(지하 울림터2) / 각 정원 15명</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>시간 / 요일</th><th>월</th><th>목</th><th>금</th></tr><tr><td>9:30~<br>10:20</td><td>기타 초급<br>(25,000원)</td><td>수채화 초급<br>(9:30~10:50)<br>(30,000원)</td><td>아코디언 초급<br>(10:00~10:50)<br>(25,000원)</td></tr><tr><td>10:30~<br>11:20</td><td>기타 중급<br>(25,000원)</td><td>수채화 중급<br>(11:00~12:20)<br>(30,000원)</td><td>아코디언 중급<br>(11:00~11:50)<br>(25,000원)</td></tr></table></div><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>과목명</th><th>내용</th></tr><tr><td>기타</td><td>기본 코드를 익히어 연주의 기초를 다지는 수업</td></tr><tr><td>수채화</td><td>수채화 물감을 사용하여서 기초를 배우는 수업</td></tr><tr><td>아코디언</td><td>이론과 연주를 기초부터 배우는 수업</td></tr></table></div><h4 class="gw-h">수강기간: 20주</h4><ul class="gw-list"><li>신청방법 : 수강신청 기간에 신청 접수 후 추첨</li></ul><div class="gw-contact"><p class="gw-contact-tit">문의</p><ul class="gw-list"><li>노년사회화교육팀 <a class="gw-tel" href="tel:028886145">02-888-6145</a></li></ul></div>
+</div>
+    </div>
+
+    </article>
+
+    </div><!-- /.sub-body -->
+</main>
+
+<!-- 하단 시작 { -->
+<footer id="ft" class="ft">
+    <div class="ft-top">
+        <div class="inner">
+            <ul class="ft-links">
+                <li><a href="#co_id=privacy" class="is-strong">개인정보처리방침</a></li>
+                <li><a href="#co_id=provision">이용약관</a></li>
+                <li><a href="roadmap.html?co_id=roadmap">오시는 길</a></li>
+                <li><a href="facility.html?co_id=facility">시설안내</a></li>
+            </ul>
+            <div class="ft-family">
+                <label for="ft_family" class="sound_only">관련기관 바로가기</label>
+                <select id="ft_family" class="js-family">
+                    <option value="">관련기관 바로가기</option>
+                                        <option value="organization.html?co_id=organization">사회복지법인 한주재단</option>
+                                        <option value="https://noinjigi.org/daycare">관악데이케어센터</option>
+                                        <option value="https://noinjigi.org/hospital">관악치매전문요양센터</option>
+                                    </select>
+            </div>
+        </div>
+    </div>
+    <div class="ft-body">
+        <div class="inner">
+            <div class="ft-brand">
+                <img src="../theme/gwanak/img/logo.png" width="200" height="40" alt="사회복지법인 한주재단 시립관악노인종합복지관">
+            </div>
+            <address class="ft-info">
+                <p><span>주소</span> (08708) 서울특별시 관악구 보라매로 35</p>
+                <p><span>대표전화</span> <a href="tel:028886144">02-888-6144~5</a> <span>팩스</span> 02-888-8026</p>
+                <p><span>이메일</span> <a href="mailto:nambunoin@hanmail.net">nambunoin@hanmail.net</a></p>
+            </address>
+            <div class="ft-hours">
+                <p class="ft-hours-tit">운영시간</p>
+                <p class="ft-hours-txt">평일 09:00 ~ 18:00</p>
+                <p class="ft-hours-sub">토·일요일 및 공휴일 휴관</p>
+            </div>
+        </div>
+        <div class="inner">
+            <p class="ft-copy">Copyright &copy; 관악노인종합복지관. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<button type="button" class="to-top js-to-top" aria-label="맨 위로 이동"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 7-7 7 7M12 19V5"/></svg></button>
+<!-- } 하단 끝 -->
+
+<script src="../theme/gwanak/js/theme.js?ver=preview"></script>
+
+
+
+</body>
+</html>

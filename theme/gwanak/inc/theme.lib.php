@@ -59,7 +59,7 @@ function gwanak_default_menu()
         )),
         array('후원·자원봉사', 'content', 'service', array(
             array('자원봉사 안내', 'content', 'service'),
-            array('자원봉사활동 현황', 'content', 'service_status'),
+            array('자원봉사활동 현황', 'board', 'volunteer'),
             array('자원봉사 신청', 'board', 'form_service'),
             array('후원 안내', 'content', 'sponsor'),
             array('후원 신청', 'board', 'form_sponsor'),

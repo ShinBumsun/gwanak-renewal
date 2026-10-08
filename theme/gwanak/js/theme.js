@@ -118,6 +118,11 @@
         list.scrollLeft = subCur.offsetLeft - (list.clientWidth - subCur.offsetWidth) / 2;
     }
 
+    /* ---------- 넓은 표 : 가로 스크롤 안내 ---------- */
+    var wraps = $$('.gw-tbl-wrap');
+    function markScroll() { wraps.forEach(function (w) { w.classList.toggle('is-scroll', w.scrollWidth > w.clientWidth + 2); }); }
+    if (wraps.length) { markScroll(); window.addEventListener('resize', markScroll); }
+
     /* ---------- 관련기관 이동 ---------- */
     $$('.js-family').forEach(function (sel) {
         sel.addEventListener('change', function () {

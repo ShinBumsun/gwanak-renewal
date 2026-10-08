@@ -9,6 +9,10 @@ error_reporting(E_ALL);
 $PAGES = array(
     'index' => '메인', 'greeting' => '인사말', 'mission' => '미션과 비전', 'human' => '인재상', 'ci' => '기관로고',
     'history' => '기관연혁', 'facility' => '시설안내', 'memberinfo' => '조직도·직원소개', 'organization' => '법인소개', 'roadmap' => '오시는 길',
+    'guide' => '복지관 이용안내', 'restaurant' => '경로식당 이용안내', 'timetable' => '프로그램 시간표', 'bus' => '셔틀버스 안내',
+    'biz1' => '상담', 'biz2' => '건강증진사업', 'biz3' => '노년사회화교육사업', 'biz4' => '재가복지사업', 'biz5' => '지역복지활성화사업',
+    'biz6' => '노인사회활동지원사업', 'biz8' => '직원교육사업', 'biz9' => '취업알선사업', 'biz10' => '특화서비스', 'biz12' => '지역복지협동사업',
+    'biz13' => '노인맞춤돌봄서비스사업', 'biz14' => '기능회복운영사업', 'service' => '자원봉사 안내', 'sponsor' => '후원 안내',
 );
 $page  = isset($argv[1]) ? $argv[1] : '';
 if (!isset($PAGES[$page])) {
@@ -169,7 +173,7 @@ if ($page === 'index') {
     // bbs/content.php 와 같은 흐름
     $co_id = $page;
     $g5['title'] = $PAGES[$page];
-    $str = str_replace('{THEME_URL}', G5_THEME_URL, file_get_contents(G5_THEME_PATH.'/setup/content/'.$co_id.'.html'));
+    $str = str_replace(array('{THEME_URL}', '{BBS_URL}'), array(G5_THEME_URL, G5_BBS_URL), file_get_contents(G5_THEME_PATH.'/setup/content/'.$co_id.'.html'));
     include G5_THEME_PATH.'/head.php';
     include G5_THEME_PATH.'/skin/content/basic/content.skin.php';
     include G5_THEME_PATH.'/tail.php';

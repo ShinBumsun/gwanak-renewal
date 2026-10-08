@@ -38,6 +38,7 @@ $gw_boards = array(
     'movie'         => array('gwanak_pr', '관악동영상', 'gallery', 10, 1, 0, ''),
     'news'          => array('gwanak_pr', '언론에 비친 관악', 'basic', 10, 1, 0, ''),
     'newsletter'    => array('gwanak_pr', '뉴스레터', 'gallery', 10, 1, 0, ''),
+    'volunteer'     => array('gwanak_info', '자원봉사활동 현황', 'basic', 10, 1, 0, ''),
     'form_service'  => array('gwanak_form', '자원봉사 신청', 'basic', 1, 10, 2, ''),
     'form_sponsor'  => array('gwanak_form', '후원 신청', 'basic', 1, 10, 2, ''),
 );
@@ -146,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($pages as $co_id => $co_subject) {
         // 테마 기본 내용 : setup/content/{co_id}.html
         $tpl  = __DIR__.'/content/'.$co_id.'.html';
-        $body = is_file($tpl) ? str_replace('{THEME_URL}', G5_THEME_URL, file_get_contents($tpl))
+        $body = is_file($tpl) ? str_replace(array('{THEME_URL}', '{BBS_URL}'), array(G5_THEME_URL, G5_BBS_URL), file_get_contents($tpl))
                               : '<p>'.$co_subject.' 내용을 입력해 주세요. (관리자 &gt; 게시판관리 &gt; 내용관리)</p>';
 
         $row = sql_fetch(" select co_id from {$g5['content_table']} where co_id = '{$co_id}' ");
