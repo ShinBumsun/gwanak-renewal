@@ -5,6 +5,13 @@
  * (실제 서비스에는 필요 없는 파일입니다)
  */
 error_reporting(E_ALL);
+
+$PAGES = array('index' => '메인', 'greeting' => '인사말');
+$page  = isset($argv[1]) ? $argv[1] : '';
+if (!isset($PAGES[$page])) {
+    foreach ($PAGES as $p => $n) passthru(escapeshellarg(PHP_BINARY).' '.escapeshellarg(__FILE__).' '.$p);
+    exit;
+}
 ini_set('display_errors', '1');
 date_default_timezone_set('Asia/Seoul');
 
@@ -13,7 +20,7 @@ $PREVIEW = __DIR__;
 $THEME   = dirname(__DIR__).'/theme/gwanak';
 
 define('_GNUBOARD_', true);
-define('G5_URL', '.');
+define('G5_URL', 'index.html');
 define('G5_BBS_URL', '#bbs');
 define('G5_ADMIN_URL', '#adm');
 define('G5_ADMIN_DIR', 'adm');
@@ -29,7 +36,7 @@ define('G5_CSS_VER', 'preview');
 define('G5_JS_VER', 'preview');
 define('G5_IS_MOBILE', false);
 define('G5_COOKIE_DOMAIN', '');
-define('G5_SERVER_TIME', isset($argv[1]) ? strtotime($argv[1]) : time());
+define('G5_SERVER_TIME', getenv('PREVIEW_TIME') ? strtotime(getenv('PREVIEW_TIME')) : time());
 
 $config = array('cf_title' => '관악노인종합복지관', 'cf_add_meta' => '', 'cf_add_script' => '', 'cf_editor' => '');
 $g5 = array();
@@ -45,7 +52,11 @@ function get_microtime() { return microtime(true); }
 function clean_xss_tags($s) { return $s; }
 function get_text($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 function cut_str($s, $len, $suffix = '…') { return mb_strlen($s) > $len ? mb_substr($s, 0, $len).$suffix : $s; }
-function get_pretty_url($folder, $no = '') { return '#'.$folder.($no ? '/'.$no : ''); }
+function get_pretty_url($folder, $no = '') {
+    global $PAGES;
+    if ($folder === 'content') return isset($PAGES[$no]) ? $no.'.html?co_id='.$no : '#co_id='.$no;
+    return '#bo_table='.$folder;
+}
 function html_end() { return ''; }
 function get_file($bo_table, $wr_id) {
     global $FIX_FILES;
@@ -149,8 +160,18 @@ function latest($skin_dir, $bo_table, $rows = 10, $subject_len = 40, $cache_time
 }
 
 ob_start();
-include G5_THEME_PATH.'/index.php';
+if ($page === 'index') {
+    include G5_THEME_PATH.'/index.php';
+} else {
+    // bbs/content.php 와 같은 흐름
+    $co_id = $page;
+    $g5['title'] = $PAGES[$page];
+    $str = str_replace('{THEME_URL}', G5_THEME_URL, file_get_contents(G5_THEME_PATH.'/setup/content/'.$co_id.'.html'));
+    include G5_THEME_PATH.'/head.php';
+    include G5_THEME_PATH.'/skin/content/basic/content.skin.php';
+    include G5_THEME_PATH.'/tail.php';
+}
 $html = ob_get_clean();
 $html = str_replace('</head>', implode("\n", $__css)."\n</head>", $html);
-file_put_contents($PREVIEW.'/index.html', $html);
-echo "preview/index.html 생성 (".strlen($html)." bytes)\n";
+file_put_contents($PREVIEW.'/'.$page.'.html', $html);
+echo "preview/{$page}.html 생성 (".strlen($html)." bytes)\n";

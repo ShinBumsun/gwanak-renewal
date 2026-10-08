@@ -111,6 +111,13 @@
         });
     }
 
+    /* ---------- 서브메뉴 탭 : 현재 메뉴가 보이도록 스크롤 ---------- */
+    var subCur = $('.sub-nav-list .is-current');
+    if (subCur) {
+        var list = subCur.closest('.sub-nav-list');
+        list.scrollLeft = subCur.offsetLeft - (list.clientWidth - subCur.offsetWidth) / 2;
+    }
+
     /* ---------- 관련기관 이동 ---------- */
     $$('.js-family').forEach(function (sel) {
         sel.addEventListener('change', function () {

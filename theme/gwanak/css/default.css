@@ -184,16 +184,9 @@ em, i { font-style: normal; }
 html.is-locked, html.is-locked body { overflow: hidden; }
 
 /* ==========================================================
-   서브 공통 (서브페이지 상세 디자인은 다음 단계에서 확장)
-   ========================================================== */
-.sub-head { padding: 56px 0 44px; background: var(--c-bg-warm); border-bottom: 1px solid var(--c-line); }
-.sub-title { font-size: 2.2rem; font-weight: 800; }
-.sub-body { padding-top: 56px; padding-bottom: 100px; min-height: 40vh; }
-
-/* ==========================================================
    푸터
    ========================================================== */
-.ft { background: #f4f1ec; color: var(--c-sub); font-size: .94rem; }
+.ft { border-top: 1px solid var(--c-line); background: #f4f1ec; color: var(--c-sub); font-size: .94rem; }
 .ft-top { border-bottom: 1px solid var(--c-line); background: #fff; }
 .ft-top .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
 .ft-links { display: flex; flex-wrap: wrap; gap: 4px 28px; }
@@ -286,8 +279,6 @@ textarea { border: 1px solid var(--c-line-strong); border-radius: 10px; padding:
     .hd-search-submit span { display: none; }
     .hd-search-submit { width: 52px; padding: 0; }
     .hd-search-close { top: -24px; }
-    .sub-head { padding: 36px 0 28px; }
-    .sub-title { font-size: 1.7rem; }
     .ft-top .inner { flex-direction: column; align-items: stretch; padding-top: 16px; padding-bottom: 16px; }
     .ft-family select { width: 100%; }
     .ft-info span:not(:first-child) { margin-left: 0; }

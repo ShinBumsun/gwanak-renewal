@@ -9,6 +9,11 @@ include_once(G5_THEME_PATH.'/inc/theme.lib.php');
 
 $gw_menu = gwanak_menu();
 $gw_info = gwanak_info();
+$gw_cur  = defined('_INDEX_') ? null : gwanak_current($gw_menu);
+
+if (!defined('_INDEX_')) {
+    add_stylesheet('<link rel="stylesheet" href="'.G5_THEME_CSS_URL.'/sub.css?ver='.G5_CSS_VER.'">', 1);
+}
 ?>
 
 <a class="skip" href="#container">본문 바로가기</a>
@@ -52,7 +57,7 @@ $gw_info = gwanak_info();
             <nav class="gnb" id="gnb" aria-label="주 메뉴">
                 <ul class="gnb-list">
                     <?php foreach ($gw_menu as $i => $m) { ?>
-                    <li class="gnb-item">
+                    <li class="gnb-item<?php echo ($gw_cur && $gw_cur[0] === $i) ? ' is-current' : ''; ?>">
                         <a class="gnb-link" href="<?php echo $m['href']; ?>"<?php echo gwanak_target($m['target']); ?>><?php echo $m['name']; ?></a>
                         <?php if ($m['sub']) { ?>
                         <ul class="gnb-sub">
@@ -143,13 +148,38 @@ $gw_info = gwanak_info();
 <?php if (defined('_INDEX_')) { ?>
 <main id="container" class="main">
 <?php } else {
-    $gw_page_title = isset($board['bo_subject']) && $board['bo_subject'] ? $board['bo_subject'] : $g5['title'];
+    $gw_top  = $gw_cur ? $gw_menu[$gw_cur[0]] : null;
+    $gw_here = ($gw_cur && $gw_cur[1] >= 0) ? $gw_top['sub'][$gw_cur[1]] : null;
+    $gw_page_title = $gw_here ? $gw_here['name'] : (!empty($board['bo_subject']) ? get_text($board['bo_subject']) : get_text($g5['title']));
+    $gw_slogan = $gw_top ? gwanak_slogan($gw_top['name']) : '';
 ?>
 <main id="container" class="sub">
-    <div class="sub-head">
+    <div class="sub-visual">
         <div class="inner">
-            <h2 class="sub-title"><?php echo get_text($gw_page_title); ?></h2>
+            <?php if ($gw_top) { ?><p class="sub-eyebrow"><?php echo $gw_top['name']; ?></p><?php } ?>
+            <h2 class="sub-title"><?php echo $gw_page_title; ?></h2>
+            <?php if ($gw_slogan) { ?><p class="sub-slogan"><?php echo $gw_slogan; ?></p><?php } ?>
+            <nav class="breadcrumb" aria-label="현재 위치">
+                <ol>
+                    <li><a href="<?php echo G5_URL; ?>"><?php echo gwanak_icon('home'); ?><span class="sound_only">홈</span></a></li>
+                    <?php if ($gw_top) { ?><li><a href="<?php echo $gw_top['href']; ?>"><?php echo $gw_top['name']; ?></a></li><?php } ?>
+                    <li aria-current="page"><?php echo $gw_page_title; ?></li>
+                </ol>
+            </nav>
         </div>
     </div>
+
+    <?php if ($gw_top && count($gw_top['sub']) > 1) { ?>
+    <nav class="sub-nav" aria-label="<?php echo $gw_top['name']; ?> 하위 메뉴">
+        <div class="inner">
+            <ul class="sub-nav-list">
+                <?php foreach ($gw_top['sub'] as $j => $s) { ?>
+                <li><a href="<?php echo $s['href']; ?>"<?php echo gwanak_target($s['target']); ?><?php echo $j === $gw_cur[1] ? ' class="is-current" aria-current="page"' : ''; ?>><?php echo $s['name']; ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </nav>
+    <?php } ?>
+
     <div class="inner sub-body">
 <?php } ?>

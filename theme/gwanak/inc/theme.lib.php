@@ -163,6 +163,46 @@ function gwanak_family()
     );
 }
 
+// 메뉴 링크 → 비교용 키 (b:게시판, c:내용, f:faq)
+function gwanak_link_key($href)
+{
+    if (preg_match('/[?&]co_id=([a-z0-9_]+)/i', $href, $m)) return 'c:'.$m[1];
+    if (preg_match('/[?&]bo_table=([a-z0-9_]+)/i', $href, $m)) return 'b:'.$m[1];
+    if (strpos($href, 'faq.php') !== false) return 'f:faq';
+    $path = rtrim(preg_replace('#^'.preg_quote(G5_URL, '#').'#', '', strtok($href, '?#')), '/');
+    if (preg_match('#^/content/([a-z0-9_]+)$#i', $path, $m)) return 'c:'.$m[1];   // 짧은 주소 : 내용
+    if (preg_match('#^/([a-z0-9_]+)(/[0-9]+)?$#i', $path, $m)) return 'b:'.$m[1]; // 짧은 주소 : 게시판
+    return '';
+}
+
+// 현재 페이지가 속한 메뉴 찾기 : array(대메뉴 index, 소메뉴 index) 또는 null
+function gwanak_current($menu)
+{
+    global $bo_table, $co_id;
+
+    if (!empty($bo_table)) $key = 'b:'.$bo_table;
+    else if (!empty($co_id)) $key = 'c:'.$co_id;
+    else if (isset($_SERVER['SCRIPT_NAME']) && basename($_SERVER['SCRIPT_NAME']) === 'faq.php') $key = 'f:faq';
+    else return null;
+
+    foreach ($menu as $i => $m) {
+        foreach ($m['sub'] as $j => $s) {
+            if (gwanak_link_key($s['href']) === $key) return array($i, $j);
+        }
+        if (gwanak_link_key($m['href']) === $key) return array($i, -1);
+    }
+    return null;
+}
+
+// 대메뉴별 서브 비주얼 문구
+function gwanak_slogan($name)
+{
+    $s = array(
+        '복지관소개' => '어르신의 주체적인 삶을 위해 함께 동행하겠습니다.',
+    );
+    return isset($s[$name]) ? $s[$name] : '';
+}
+
 function gwanak_target($target)
 {
     return ($target && $target !== 'self') ? ' target="_'.$target.'" rel="noopener"' : '';

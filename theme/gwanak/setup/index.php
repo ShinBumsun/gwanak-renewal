@@ -144,17 +144,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($m[3] as $s) if ($s[1] === 'content') $pages[$s[2]] = $s[0];
     }
     foreach ($pages as $co_id => $co_subject) {
+        // 테마 기본 내용 : setup/content/{co_id}.html
+        $tpl  = __DIR__.'/content/'.$co_id.'.html';
+        $body = is_file($tpl) ? str_replace('{THEME_URL}', G5_THEME_URL, file_get_contents($tpl))
+                              : '<p>'.$co_subject.' 내용을 입력해 주세요. (관리자 &gt; 게시판관리 &gt; 내용관리)</p>';
+
         $row = sql_fetch(" select co_id from {$g5['content_table']} where co_id = '{$co_id}' ");
-        if (!empty($row['co_id'])) { $logs[] = "페이지 [{$co_subject}] 이미 있음"; continue; }
-        $body = '<p>'.$co_subject.' 내용을 입력해 주세요. (관리자 &gt; 게시판관리 &gt; 내용관리)</p>';
+        if (!empty($row['co_id'])) {
+            if (!empty($_POST['overwrite_content']) && is_file($tpl)) {
+                sql_query(" update {$g5['content_table']}
+                            set co_html = 1, co_content = '".sql_real_escape_string($body)."',
+                                co_skin = 'theme/basic', co_mobile_skin = 'theme/basic'
+                            where co_id = '{$co_id}' ");
+                $logs[] = "페이지 [{$co_subject}] 테마 기본 내용으로 덮어씀";
+            } else {
+                $logs[] = "페이지 [{$co_subject}] 이미 있음";
+            }
+            continue;
+        }
         sql_query(" insert into {$g5['content_table']}
                     set co_id = '{$co_id}',
                         co_html = 1,
                         co_subject = '".sql_real_escape_string($co_subject)."',
                         co_content = '".sql_real_escape_string($body)."',
                         co_mobile_content = '',
-                        co_skin = 'basic',
-                        co_mobile_skin = 'basic' ");
+                        co_skin = 'theme/basic',
+                        co_mobile_skin = 'theme/basic' ");
         $logs[] = "페이지 [{$co_subject}] 생성 ({$co_id})";
     }
 
@@ -243,6 +258,7 @@ label { display: block; margin-top: 16px; font-weight: 600; }
     <form method="post">
         <input type="hidden" name="token" value="<?php echo $token; ?>">
         <label><input type="checkbox" name="replace_menu" value="1"> 관리자 메뉴설정을 테마 기본 메뉴로 교체 (기존 메뉴 삭제)</label>
+        <label><input type="checkbox" name="overwrite_content" value="1"> 이미 있는 페이지 중 테마 기본 내용이 준비된 페이지(인사말 등)를 테마 내용으로 덮어쓰기</label>
         <button type="submit" class="btn">초기 설정 실행</button>
     </form>
 </div>
