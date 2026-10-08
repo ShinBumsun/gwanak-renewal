@@ -5,7 +5,7 @@
 2. `theme/gwanak` 폴더를 서버의 `/theme/` 아래에 업로드
 3. 관리자 > 환경설정 > 테마설정 에서 **gwanak** 적용
 4. 최고관리자로 로그인한 뒤 `https://도메인/theme/gwanak/setup/` 접속 → **초기 설정 실행**
-   - 게시판 15개, 내용관리 페이지, (선택) 메뉴, 기관 정보가 만들어집니다
+   - 게시판 16개(테마 스킨 적용), 내용관리 페이지 33개(기존 사이트 내용 이전), FAQ 기본 질문, (선택) 메뉴, 기관 정보가 만들어집니다
    - 완료 후 `theme/gwanak/setup` 폴더 삭제
 
 ## 관리자에서 바꾸는 곳
@@ -19,6 +19,17 @@
 | 팝업 | 관리자 > 게시판관리 > 팝업레이어관리 |
 | 소식·앨범·식단 등 | 각 게시판 글쓰기 |
 
+## 테마에 포함된 스킨
+| 스킨 | 위치 | 비고 |
+|---|---|---|
+| 게시판 목록형 | `skin/board/basic` (설정값 `theme/basic`) | 글쓰기·댓글 화면은 그누보드 기본 스킨을 불러와 디자인만 입힘 |
+| 게시판 갤러리형 | `skin/board/gallery` (설정값 `theme/gallery`) | 앨범·동영상·뉴스레터·식단표·메인비주얼 |
+| 내용관리 | `skin/content/basic` (설정값 `theme/basic`) | |
+| FAQ | `skin/faq/basic` (설정값 `theme/basic`) | |
+| 최신글 | `skin/latest/main_*` | 메인페이지 전용 |
+
+로그인·회원가입·통합검색 화면은 그누보드 기본 스킨을 그대로 사용합니다.
+
 ## 미리보기
-`preview/index.html`(메인), `preview/greeting.html`(인사말), `preview/mobile.html`(모바일 폭) — 브라우저로 열기.
+`preview/index.html`(메인) 외 각 페이지 html, 게시판 예시 `board-notice.html` · `board-photo.html` · `board-view.html` · `faq.html`, `preview/mobile.html`(모바일 폭) — 브라우저로 열기.
 테마 수정 후 `php preview/build.php` 로 다시 생성. preview 폴더는 서버에 올리지 않아도 됩니다.

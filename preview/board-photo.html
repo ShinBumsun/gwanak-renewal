@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#ffffff">
-<title>지역복지활성화사업 | 관악노인종합복지관</title>
+<title>관악앨범 | 관악노인종합복지관</title>
 <script>
 // 글자크기 설정을 화면 표시 전에 적용 (깜빡임 방지)
 (function(){try{var f=localStorage.getItem('gw-fs');if(f)document.documentElement.setAttribute('data-fs',f);}catch(e){}})();
@@ -21,13 +21,14 @@ var g5_bbs_url   = "#bbs";
 var g5_is_member = "";
 var g5_is_admin  = "";
 var g5_is_mobile = "";
-var g5_bo_table  = "";
+var g5_bo_table  = "photo";
 var g5_sca       = "";
 var g5_editor    = "";
 var g5_cookie_domain = "";
 </script>
 <link rel="stylesheet" href="#js/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../theme/gwanak/css/sub.css?ver=preview">
+<link rel="stylesheet" href="../theme/gwanak/skin/board/gallery/style.css?ver=preview">
 </head>
 <body>
 
@@ -89,7 +90,7 @@ var g5_cookie_domain = "";
                                                         <li><a href="bus.html?co_id=bus">셔틀버스 안내</a></li>
                                                     </ul>
                                             </li>
-                                        <li class="gnb-item is-current">
+                                        <li class="gnb-item">
                         <a class="gnb-link" href="biz1.html?co_id=biz1">사업소개</a>
                                                 <ul class="gnb-sub">
                                                         <li><a href="biz1.html?co_id=biz1">상담</a></li>
@@ -129,7 +130,7 @@ var g5_cookie_domain = "";
                                                         <li><a href="#bo_table=program">프로그램 강좌신청</a></li>
                                                     </ul>
                                             </li>
-                                        <li class="gnb-item">
+                                        <li class="gnb-item is-current">
                         <a class="gnb-link" href="board-photo.html?bo_table=photo">관악홍보실</a>
                                                 <ul class="gnb-sub">
                                                         <li><a href="board-photo.html?bo_table=photo">관악앨범</a></li>
@@ -271,47 +272,152 @@ var g5_cookie_domain = "";
 <main id="container" class="sub">
     <div class="sub-visual">
         <div class="inner">
-            <p class="sub-eyebrow">사업소개</p>            <h2 class="sub-title">지역복지활성화사업</h2>
+            <p class="sub-eyebrow">관악홍보실</p>            <h2 class="sub-title">관악앨범</h2>
                         <nav class="breadcrumb" aria-label="현재 위치">
                 <ol>
                     <li><a href="index.html"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><span class="sound_only">홈</span></a></li>
-                    <li><a href="biz1.html?co_id=biz1">사업소개</a></li>                    <li aria-current="page">지역복지활성화사업</li>
+                    <li><a href="board-photo.html?bo_table=photo">관악홍보실</a></li>                    <li aria-current="page">관악앨범</li>
                 </ol>
             </nav>
         </div>
     </div>
 
-        <nav class="sub-nav" aria-label="사업소개 하위 메뉴">
+        <nav class="sub-nav" aria-label="관악홍보실 하위 메뉴">
         <div class="inner">
             <ul class="sub-nav-list">
-                                <li><a href="biz1.html?co_id=biz1">상담</a></li>
-                                <li><a href="biz2.html?co_id=biz2">건강증진사업</a></li>
-                                <li><a href="biz3.html?co_id=biz3">노년사회화교육사업</a></li>
-                                <li><a href="biz4.html?co_id=biz4">재가복지사업</a></li>
-                                <li><a href="biz5.html?co_id=biz5" class="is-current" aria-current="page">지역복지활성화사업</a></li>
-                                <li><a href="biz6.html?co_id=biz6">노인사회활동지원사업</a></li>
-                                <li><a href="biz8.html?co_id=biz8">직원교육사업</a></li>
-                                <li><a href="biz9.html?co_id=biz9">취업알선사업</a></li>
-                                <li><a href="biz10.html?co_id=biz10">특화서비스</a></li>
-                                <li><a href="biz12.html?co_id=biz12">지역복지협동사업</a></li>
-                                <li><a href="biz13.html?co_id=biz13">노인맞춤돌봄서비스사업</a></li>
-                                <li><a href="biz14.html?co_id=biz14">기능회복운영사업</a></li>
+                                <li><a href="board-photo.html?bo_table=photo" class="is-current" aria-current="page">관악앨범</a></li>
+                                <li><a href="#bo_table=movie">관악동영상</a></li>
+                                <li><a href="#bo_table=news">언론에 비친 관악</a></li>
+                                <li><a href="#bo_table=newsletter">뉴스레터</a></li>
                             </ul>
         </div>
     </nav>
     
     <div class="inner sub-body">
 
-<article id="ctt" class="ctt ctt_biz5">
-    <h3 class="sound_only">지역복지활성화사업 본문</h3>
+<div id="bo_list" class="bo bo--gallery">
 
-    <div id="ctt_con" class="ctt-con">
-        <div class="gw-page gw-doc">
-<p class="gw-lead">협약 경로당을 중심으로 여가, 건강 프로그램 및 복지 정보를 제공하고 <br>세대 통합 프로그램, 특별 행사운영을 통해 지역주민과 어르신이 <br>주체적으로 참여할 수 있는 지역 공동체 환경을 조성한다.</p><ul class="gw-photos"><li><img src="../theme/gwanak/img/pages/biz5_img01_2.jpg" alt="경로당 관리" loading="lazy"><p>경로당 관리</p></li><li><img src="../theme/gwanak/img/pages/biz5_img02_2.jpg" alt="여가지원" loading="lazy"><p>여가지원</p></li><li><img src="../theme/gwanak/img/pages/biz5_img03_2.jpg" alt="특별 행사 및 지역 연계" loading="lazy"><p>특별 행사 및 지역 연계</p></li></ul><h4 class="gw-h">사업내용</h4><div class="gw-tbl-wrap"><table class="gw-tbl"><tr><th>세부사업</th><th>내용</th></tr><tr><td class="is-key">경로당 관리</td><td><ul class="gw-list"><li>실태 및 욕구 조사</li><li>임원 교육 및 간담회</li><li>순회 방문 및 정보 제공</li><li>만족도 조사</li></ul></td></tr><tr><td class="is-key">여가지원</td><td><ul class="gw-list"><li>건강 체조</li><li>자기주도 학습</li><li>텃밭 가꾸기 활동</li></ul></td></tr><tr><td class="is-key">특별행사 및 지역연계</td><td><ul class="gw-list"><li>경로당 발표회</li><li>지역자원 발굴 및 연계</li><li>주민참여 프로그램</li></ul></td></tr><tr><td class="is-key">종이접기 프로그램</td><td><ul class="gw-list"><li>종이접기 활동</li><li>강사 간담회</li><li>작품 발표회</li></ul></td></tr><tr><td class="is-key">작은복지관 경로당</td><td><ul class="gw-list"><li>주민 협동 프로그램</li><li>참여자 간담회</li><li>강사 간담회</li></ul></td></tr><tr><td class="is-key">시니어 종합상담</td><td><ul class="gw-list"><li>상담 및 정보제공</li><li>노인권익증진 캠페인</li></ul></td></tr></table></div><h4 class="gw-h">이용절차</h4><dl class="gw-info"><div><dt>대상자</dt><dd>관악구 내 복지관 협약 경로당 이용 어르신 누구나</dd></div><div><dt>장소</dt><dd>각 경로당</dd></div><div><dt>이용방법</dt><dd>연 1회 경로당 실태조사 및 욕구조사를 통한 경로당 선정, 협약체결</dd></div></dl><div class="gw-contact"><p class="gw-contact-tit">문의</p><ul class="gw-check"><li>지역복지활성화 담당자 <a class="gw-tel" href="tel:07088932447">070-8893-2447~8</a></li></ul></div>
-</div>
+    
+    <div class="bo-top">
+        <p class="bo-total">전체 <strong>128</strong>건</p>
+
+        <form name="fsearch" method="get" class="bo-sch" role="search">
+            <input type="hidden" name="bo_table" value="photo">
+            <input type="hidden" name="sca" value="">
+            <input type="hidden" name="sop" value="and">
+            <label for="sfl" class="sound_only">검색대상</label>
+            <select name="sfl" id="sfl">
+                                <option value="wr_subject" selected="selected">제목</option>
+                <option value="wr_content">내용</option>
+                <option value="wr_subject||wr_content">제목+내용</option>
+                            </select>
+            <label for="stx" class="sound_only">검색어</label>
+            <input type="search" name="stx" value="" id="stx" maxlength="20" placeholder="검색어를 입력하세요" required>
+            <button type="submit" class="bo-sch-btn"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="sound_only">검색</span></button>
+        </form>
     </div>
 
-    </article>
+    <form name="fboardlist" id="fboardlist" action="#bbs/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
+    <input type="hidden" name="bo_table" value="photo">
+    <input type="hidden" name="sfl" value="wr_subject">
+    <input type="hidden" name="stx" value="">
+    <input type="hidden" name="spt" value="">
+    <input type="hidden" name="sca" value="">
+    <input type="hidden" name="sst" value="">
+    <input type="hidden" name="sod" value="">
+    <input type="hidden" name="page" value="1">
+    <input type="hidden" name="sw" value="">
+
+    
+        <!-- 갤러리형 목록 -->
+    <ul class="bo-gal">
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g1.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[관악노인종합복지관] 제3회 사랑해요, 관악노인 어르신 축제</strong>
+                    <span class="bo-meta"><time datetime="2026-10-06">2026.10.06</time><span>조회 120</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g2.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[재가복지사업] 사단법인 정해복지 추석 명절 나눔</strong>
+                    <span class="bo-meta"><time datetime="2026-10-02">2026.10.02</time><span>조회 157</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g3.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[노인맞춤돌봄서비스&amp;재가복지사업] 서울시 어르신 나들이</strong>
+                    <span class="bo-meta"><time datetime="2026-09-29">2026.09.29</time><span>조회 194</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g4.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[지역복지활성화사업] 2026년 서울시 우리동네 나눔</strong>
+                    <span class="bo-meta"><time datetime="2026-09-26">2026.09.26</time><span>조회 231</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g5.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[노년사회화교육] 2026년 하반기 노년사회화교육 개강식</strong>
+                    <span class="bo-meta"><time datetime="2026-09-23">2026.09.23</time><span>조회 268</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g6.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[지역복지활성화사업] 2026년 서울시 이웃사랑 캠페인</strong>
+                    <span class="bo-meta"><time datetime="2026-09-18">2026.09.18</time><span>조회 305</span></span>
+                </span>
+            </a>
+        </li>
+                <li class="bo-gal-item">
+                        <a href="board-view.html">
+                <span class="bo-gal-thumb">
+                                        <img src="sample/g7.jpg" alt="" loading="lazy" width="600" height="420">
+                                                        </span>
+                <span class="bo-gal-body">
+                                        <strong class="bo-gal-tit">[자원봉사사업] 관악애발견 &amp; 문영여고 RCY 봉사활동</strong>
+                    <span class="bo-meta"><time datetime="2026-09-14">2026.09.14</time><span>조회 342</span></span>
+                </span>
+            </a>
+        </li>
+            </ul>
+    
+        </form>
+
+    <div class="bo-bottom">
+        <nav class="pg_wrap"><span class="pg"><strong class="pg_current">1</strong><a href="#" class="pg_page">2</a><a href="#" class="pg_page">3</a><a href="#" class="pg_page">4</a><a href="#" class="pg_page">5</a><a href="#" class="pg_page pg_next">다음</a><a href="#" class="pg_page pg_end">맨끝</a></span></nav>        <div class="bo-btns">
+                                    <a href="#write" class="btn_b02"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14"/></svg> 글쓰기</a>        </div>
+    </div>
+</div>
+
 
     </div><!-- /.sub-body -->
 </main>

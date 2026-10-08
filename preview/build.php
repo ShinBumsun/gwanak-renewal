@@ -13,8 +13,10 @@ $PAGES = array(
     'biz1' => '상담', 'biz2' => '건강증진사업', 'biz3' => '노년사회화교육사업', 'biz4' => '재가복지사업', 'biz5' => '지역복지활성화사업',
     'biz6' => '노인사회활동지원사업', 'biz8' => '직원교육사업', 'biz9' => '취업알선사업', 'biz10' => '특화서비스', 'biz12' => '지역복지협동사업',
     'biz13' => '노인맞춤돌봄서비스사업', 'biz14' => '기능회복운영사업', 'service' => '자원봉사 안내', 'sponsor' => '후원 안내',
+    'board-notice' => '공지사항', 'board-recruit' => '인재채용', 'board-photo' => '관악앨범', 'board-view' => '공지사항', 'faq' => 'FAQ',
 );
 $page  = isset($argv[1]) ? $argv[1] : '';
+$PAGE_NAME = $page;
 if (!isset($PAGES[$page])) {
     foreach ($PAGES as $p => $n) passthru(escapeshellarg(PHP_BINARY).' '.escapeshellarg(__FILE__).' '.$p);
     exit;
@@ -62,9 +64,18 @@ function cut_str($s, $len, $suffix = '…') { return mb_strlen($s) > $len ? mb_s
 function get_pretty_url($folder, $no = '') {
     global $PAGES;
     if ($folder === 'content') return isset($PAGES[$no]) ? $no.'.html?co_id='.$no : '#co_id='.$no;
+    if (isset($PAGES['board-'.$folder])) return 'board-'.$folder.'.html?bo_table='.$folder;
     return '#bo_table='.$folder;
 }
 function html_end() { return ''; }
+function get_selected($a, $b) { return $a == $b ? ' selected="selected"' : ''; }
+function get_view_thumbnail($c) { return $c; }
+function conv_content($c) { return $c; }
+function get_paging($rows, $cur, $total, $url) {
+    $h = '<nav class="pg_wrap"><span class="pg">';
+    for ($i = 1; $i <= $total; $i++) $h .= $i == $cur ? '<strong class="pg_current">'.$i.'</strong>' : '<a href="#" class="pg_page">'.$i.'</a>';
+    return $h.'<a href="#" class="pg_page pg_next">다음</a><a href="#" class="pg_page pg_end">맨끝</a></span></nav>';
+}
 function get_file($bo_table, $wr_id) {
     global $FIX_FILES;
     $f = array('count' => 0);
@@ -169,6 +180,55 @@ function latest($skin_dir, $bo_table, $rows = 10, $subject_len = 40, $cache_time
 ob_start();
 if ($page === 'index') {
     include G5_THEME_PATH.'/index.php';
+} else if (strpos($page, 'board-') === 0 || $page === 'faq') {
+    // 게시판 · FAQ 미리보기
+    $kind = $page === 'faq' ? 'faq' : substr($page, 6);
+    $bo_table = $kind === 'view' ? 'notice' : ($kind === 'faq' ? '' : $kind);
+    if ($kind === 'faq') $_SERVER['SCRIPT_NAME'] = 'faq.php';
+    $is_gallery = ($bo_table === 'photo');
+    $board = array('bo_table' => $bo_table, 'bo_subject' => $PAGES[$page], 'bo_use_comment' => 0, 'bo_download_point' => 0);
+    $g5['title'] = $PAGES[$page];
+    $sfl = 'wr_subject'; $stx = $sca = $spt = $sst = $sod = ''; $page_no = 1; $wr_id = 0; $qstr = '';
+    $is_checkbox = false; $admin_href = $rss_href = ''; $write_href = '#write'; $list_href = '';
+    $is_category = ($bo_table === 'recruit');
+    $category_option = '<li><a href="#" id="bo_cate_on">전체</a></li><li><a href="#">채용공고</a></li><li><a href="#">합격자공고</a></li>';
+    $write_pages = get_paging(15, 1, 5, '#');
+    $board_skin_url = G5_THEME_URL.'/skin/board/'.($is_gallery ? 'gallery' : 'basic');
+    $list = array(); $src = isset($FIX[$bo_table]) ? $FIX[$bo_table] : $FIX['notice'];
+    $n = 128;
+    foreach ($src as $i => $r) {
+        $r += array('days' => 1, 'ca_name' => '', 'wr_comment' => 0, 'is_notice' => 0);
+        $list[] = array('wr_id' => $i + 1, 'num' => $n--, 'is_notice' => $r['is_notice'], 'subject' => get_text($r['wr_subject']), 'href' => 'board-view.html',
+            'wr_datetime' => d($r['days']), 'name' => '<span class="sv_member">관리자</span>', 'wr_hit' => 120 + $i * 37, 'ca_name' => $r['ca_name'], 'ca_name_href' => '#',
+            'reply' => '', 'wr_reply' => '', 'icon_new' => $r['days'] < 3, 'icon_file' => $i % 2 ? '1' : '', 'comment_cnt' => $r['wr_comment'], 'wr_comment' => $r['wr_comment']);
+    }
+    $total_count = 128; $page = 1;
+    include G5_THEME_PATH.'/head.php';
+    if ($kind === 'faq') {
+        $faq_skin_url = G5_THEME_URL.'/skin/faq/basic';
+        $fm_id = 1; $fm = array(); $page_rows = 10; $total_page = 1; $category_href = '#';
+        $faq_master_list = array(array('fm_id' => 1, 'fm_subject' => '복지관 이용'), array('fm_id' => 2, 'fm_subject' => '회원등록 및 회원증'));
+        $faq_list = array(
+            array('fa_subject' => '식권은 어디서 발급 받나요?', 'fa_content' => '<p>안내데스크에서 발급 받을 수 있습니다.</p>'),
+            array('fa_subject' => '프로그램 이용 및 식사는 언제부터 가능한가요?', 'fa_content' => '<p>회원증 수령 이후 가능합니다.</p><p>복지관 내 모든 프로그램 이용은 전산에 회원 등록된 후 가능합니다. 비회원일 경우 견학만 가능하며, 이용할 수 없습니다.</p>'),
+            array('fa_subject' => '참여자의 윤리, 권리와 존중, 학대금지 조항 안내', 'fa_content' => '<p>본 복지관 운영규정 제4장 참여자의 윤리, 제21조 참여자의 권리와 존중 / 제22조 참여자의 학대금지 조항에 대한 안내입니다.</p>'),
+        );
+        include G5_THEME_PATH.'/skin/faq/basic/list.skin.php';
+    } else if ($kind === 'view') {
+        $view = array('wr_subject' => $FIX['notice'][1]['wr_subject'], 'ca_name' => '', 'name' => '<span class="sv_member">관리자</span>', 'wr_datetime' => d(3), 'wr_hit' => 342, 'wr_comment' => 0,
+            'content' => '<p>안녕하세요. 관악노인종합복지관입니다.</p><p>2026년 하반기 노년사회화교육 프로그램 수강생을 추가 모집합니다. 관심 있는 어르신들의 많은 참여 바랍니다.</p><p><strong>접수기간</strong> : 10월 13일(월) ~ 10월 17일(금)<br><strong>접수장소</strong> : 2층 사무실 (노년사회화교육팀)<br><strong>문의</strong> : 02-888-6145</p>',
+            'file' => array('count' => 1, 0 => array('source' => '2026_하반기_추가모집_안내.hwp', 'href' => '#', 'size' => '84.0K', 'download' => 12, 'view' => '')), 'link' => array(1 => '', 2 => ''));
+        $category_name = false; $is_ip_view = false; $is_signature = false; $good_href = $nogood_href = '';
+        $update_href = $delete_href = $copy_href = $move_href = $scrap_href = $reply_href = ''; $list_href = 'board-notice.html';
+        $prev_href = '#'; $prev_wr_subject = get_text($FIX['notice'][2]['wr_subject']); $prev_wr_date = d(9);
+        $next_href = '#'; $next_wr_subject = get_text($FIX['notice'][0]['wr_subject']); $next_wr_date = d(0.5);
+        define('G5_BBS_PATH_VIEW', 1);
+        $board_skin_path = G5_THEME_PATH.'/skin/board/basic';
+        include G5_THEME_PATH.'/skin/board/basic/view.skin.php';
+    } else {
+        include G5_THEME_PATH.'/skin/board/'.($is_gallery ? 'gallery' : 'basic').'/list.skin.php';
+    }
+    include G5_THEME_PATH.'/tail.php';
 } else {
     // bbs/content.php 와 같은 흐름
     $co_id = $page;
@@ -180,5 +240,5 @@ if ($page === 'index') {
 }
 $html = ob_get_clean();
 $html = str_replace('</head>', implode("\n", $__css)."\n</head>", $html);
-file_put_contents($PREVIEW.'/'.$page.'.html', $html);
-echo "preview/{$page}.html 생성 (".strlen($html)." bytes)\n";
+file_put_contents($PREVIEW.'/'.$PAGE_NAME.'.html', $html);
+echo "preview/{$PAGE_NAME}.html 생성 (".strlen($html)." bytes)\n";

@@ -49,8 +49,22 @@ $gw_cf = array(
     'cf_2' => array('팩스', '02-888-8026'),
     'cf_3' => array('주소', '(08708) 서울특별시 관악구 보라매로 35'),
     'cf_4' => array('이메일', 'nambunoin@hanmail.net'),
-    'cf_5' => array('운영시간', '평일 09:00 ~ 18:00'),
-    'cf_6' => array('휴관 안내', '토·일요일 및 공휴일 휴관'),
+    'cf_5' => array('운영시간', '월~토 09:00 ~ 17:30'),
+    'cf_6' => array('휴관 안내', '일요일 및 공휴일 휴관'),
+);
+
+// FAQ 기본 질문 (기존 사이트 FAQ 중 현재 안내와 어긋나지 않는 항목)
+$gw_faq = array(
+    '복지관 이용' => array(
+        '참여자의 윤리, 권리와 존중, 학대금지 조항 안내' => '<p>본 복지관 운영규정 제4장 참여자의 윤리, 제21조 참여자의 권리와 존중 / 제22조 참여자의 학대금지 조항에 대한 안내입니다.</p><p><strong>제21조 참여자의 권리와 존중</strong><br>1. 시설은 모든 참여자의 인권을 존중해야 한다.<br>2. 시설은 모든 참여자에 대하여 성별, 인종, 학력, 종교, 연령, 장애 등의 이유로 차별하지 않아야 한다.<br>3. 시설은 모든 참여자가 시설이용에 있어서 자유로운 의견 개진과 불편사항 개선을 요구할 수 있도록 해야 하며 그 내용을 반영하기 위해 노력해야 한다.<br>4. 시설은 모든 참여자가 시설을 이용함에 있어서 개인 사생활과 정보의 보호, 비밀의 보장을 해야 한다.<br>5. 시설은 모든 참여자가 시설이용에 있어서 자기결정권을 갖도록 해야 한다. 단, 자기 결정이 자신 또는 타인에게 심각하고 예측가능하며 즉각적인 위험을 초래할 수 있다고 판단되는 경우에는 자기결정권을 제한할 수 있다.</p><p><strong>제22조 참여자의 학대금지</strong><br>1. 직원은 참여자에 대한 정신적, 신체적 학대를 행사해서는 아니된다.<br>2. 참여자의 학대가 발생된 경우 윤리위원회에 신고할 수 있으며 이 경우 윤리위원회에서 이를 심의하여 시설 규정에 따라 징계처리 한다.</p>',
+        '식권은 어디서 발급 받나요?' => '<p>안내데스크에서 발급 받을 수 있습니다.</p>',
+        '프로그램 이용 및 식사는 언제부터 가능한가요?' => '<p>회원증 수령 이후 가능합니다.</p><p>복지관 내 모든 프로그램 이용은 전산에 회원 등록된 후 가능합니다. 비회원일 경우 견학만 가능하며, 이용할 수 없습니다.</p>',
+    ),
+    '회원등록 및 회원증' => array(
+        '회원증을 분실했거나 고장으로 사용하지 못할 경우 어떻게 해야 하나요?' => '<p>1층 상담실에서 재발급 신청을 하세요.</p><p>회원증을 분실할 경우, 최종 회원증 발급일과 기본정보 변경여부를 확인받은 후 재발급 신청을 하고 발급 비용을 내면 됩니다. 회원증을 집에 두고 온 경우, 상담실에서 임시회원증을 발급 받아 이용하면 됩니다.</p>',
+        '회원증을 가져오지 않았는데 어떻게 해야 하나요?' => '<p>1층 상담실에서 임시회원증을 발급 받으세요.</p><p>이름과 생년월일로 회원등록 여부를 확인 후 당일만 사용 가능한 임시 회원증을 발급해 드립니다. 임시회원증으로 프로그램 신청과 식사가 가능합니다.</p>',
+        '만 60세 이하인 배우자와 함께 복지관을 이용할 수 있나요?' => '<p>이용할 수 있습니다.</p><p>배우자 중 한 분이 만 60세 이상이고 우리 복지관 회원으로 등록되어 있는 경우, 배우자가 만 60세 이하라도 복지관 회원등록이 가능합니다. 단, 이 항목은 배우자에 한해 가능하며, 부모, 형제, 자매의 경우는 해당되지 않습니다.</p>',
+    ),
 );
 
 $logs = array();
@@ -73,7 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($gw_boards as $bo_table => $b) {
         $order++;
         $row = sql_fetch(" select bo_table from {$g5['board_table']} where bo_table = '{$bo_table}' ");
-        if (!empty($row['bo_table'])) { $logs[] = "게시판 [{$b[1]}] 이미 있음"; continue; }
+        if (!empty($row['bo_table'])) {
+            if (!empty($_POST['apply_skin'])) {
+                sql_query(" update {$g5['board_table']} set bo_skin = 'theme/{$b[2]}', bo_mobile_skin = 'theme/{$b[2]}' where bo_table = '{$bo_table}' ");
+                $logs[] = "게시판 [{$b[1]}] 테마 스킨 적용";
+            } else {
+                $logs[] = "게시판 [{$b[1]}] 이미 있음";
+            }
+            continue;
+        }
 
         $is_gallery = ($b[2] === 'gallery');
         sql_query(" insert into {$g5['board_table']}
@@ -82,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         bo_subject = '".sql_real_escape_string($b[1])."',
                         bo_mobile_subject = '".sql_real_escape_string($b[1])."',
                         bo_device = 'both',
-                        bo_skin = '{$b[2]}',
-                        bo_mobile_skin = '{$b[2]}',
+                        bo_skin = 'theme/{$b[2]}',
+                        bo_mobile_skin = 'theme/{$b[2]}',
                         bo_list_level = 1,
                         bo_read_level = '{$b[4]}',
                         bo_write_level = '{$b[3]}',
@@ -208,6 +230,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $logs[] = '기본환경설정 여분필드 1~6에 기관 정보 등록';
     }
 
+    // 6. FAQ 스킨 및 기본 질문
+    sql_query(" update {$g5['config_table']} set cf_faq_skin = 'theme/basic', cf_mobile_faq_skin = 'theme/basic' ", false);
+    $logs[] = 'FAQ 스킨을 테마 스킨으로 설정';
+    $row = sql_fetch(" select count(*) as cnt from {$g5['faq_master_table']} ");
+    if (empty($row['cnt'])) {
+        $o = 0;
+        foreach ($gw_faq as $fm_subject => $items) {
+            $o++;
+            sql_query(" insert into {$g5['faq_master_table']} set fm_subject = '".sql_real_escape_string($fm_subject)."', fm_head_html = '', fm_tail_html = '', fm_mobile_head_html = '', fm_mobile_tail_html = '', fm_order = '{$o}' ");
+            $fm_id = sql_insert_id();
+            $k = 0;
+            foreach ($items as $q => $a) {
+                $k++;
+                sql_query(" insert into {$g5['faq_table']} set fm_id = '{$fm_id}', fa_subject = '".sql_real_escape_string($q)."', fa_content = '".sql_real_escape_string($a)."', fa_order = '{$k}' ");
+            }
+        }
+        $logs[] = 'FAQ 기본 질문 등록';
+    } else {
+        $logs[] = 'FAQ 질문이 이미 있어 기본 질문은 등록하지 않음';
+    }
+
     // 캐시 정리
     if (function_exists('g5_delete_all_cache')) g5_delete_all_cache();
 }
@@ -259,6 +302,7 @@ label { display: block; margin-top: 16px; font-weight: 600; }
     <form method="post">
         <input type="hidden" name="token" value="<?php echo $token; ?>">
         <label><input type="checkbox" name="replace_menu" value="1"> 관리자 메뉴설정을 테마 기본 메뉴로 교체 (기존 메뉴 삭제)</label>
+        <label><input type="checkbox" name="apply_skin" value="1"> 이미 있는 게시판에도 테마 게시판 스킨 적용</label>
         <label><input type="checkbox" name="overwrite_content" value="1"> 이미 있는 페이지 중 테마 기본 내용이 준비된 페이지(인사말 등)를 테마 내용으로 덮어쓰기</label>
         <button type="submit" class="btn">초기 설정 실행</button>
     </form>

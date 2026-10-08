@@ -6,7 +6,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
    ========================================================== */
 
 // 운영 요일 (0=일 ~ 6=토)
-if (!defined('GWANAK_OPEN_DAYS')) define('GWANAK_OPEN_DAYS', '1,2,3,4,5');
+if (!defined('GWANAK_OPEN_DAYS')) define('GWANAK_OPEN_DAYS', '1,2,3,4,5,6');
 
 // 게시판/내용/일반 링크 생성
 function gwanak_url($type, $id = '')
@@ -219,8 +219,8 @@ function gwanak_info()
         'fax'     => '02-888-8026',
         'addr'    => '(08708) 서울특별시 관악구 보라매로 35',
         'email'   => 'nambunoin@hanmail.net',
-        'hours'   => '평일 09:00 ~ 18:00',
-        'holiday' => '토·일요일 및 공휴일 휴관',
+        'hours'   => '월~토 09:00 ~ 17:30',
+        'holiday' => '일요일 및 공휴일 휴관',
     );
     $map = array('cf_1' => 'tel', 'cf_2' => 'fax', 'cf_3' => 'addr', 'cf_4' => 'email', 'cf_5' => 'hours', 'cf_6' => 'holiday');
     foreach ($map as $k => $v) {
